@@ -11,19 +11,12 @@
       ]
     },
     {
-      "id": 2,
-      "name": "Miguel",
-      "email": "miduga@gmail.com",
-      "isPremium": true,
-      "favs": [
-        2,
-        4
-      ]
-    },
-    {
       "id": "fe5c1ee0-61d1-11e9-ad05-73d0efdbd7ae",
+      "name": "Brie Larson",
       "email": "brie.larson@gmail.com",
-      "password": "$2b$10$193JOFnQScKx/Q2BW/rmVuNloOIDO.UULgHUIfQwgUGAADAZJgLd2"
+      "password": "$2b$10$193JOFnQScKx/Q2BW/rmVuNloOIDO.UULgHUIfQwgUGAADAZJgLd2",
+      "isPremium": true,
+      "favs": [2, 4]
     }
   ],
   "categories": [
