@@ -1,0 +1,96 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Daniela",
+      "email": "dani@gmail.com",
+      "isPremium": true,
+      "favs": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Miguel",
+      "email": "miduga@gmail.com",
+      "isPremium": true,
+      "favs": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "fe5c1ee0-61d1-11e9-ad05-73d0efdbd7ae",
+      "email": "brie.larson@gmail.com",
+      "password": "$2b$10$193JOFnQScKx/Q2BW/rmVuNloOIDO.UULgHUIfQwgUGAADAZJgLd2"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "cats",
+      "emoji": "🐱",
+      "cover": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "path": "/photos/cats"
+    },
+    {
+      "id": 2,
+      "name": "dogs",
+      "emoji": "🐶",
+      "cover": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "path": "/photos/dogs"
+    },
+    {
+      "id": 3,
+      "name": "hamsters",
+      "emoji": "🐹",
+      "cover": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "path": "/photos/hamsters"
+    },
+    {
+      "id": 4,
+      "name": "rabbits",
+      "emoji": "🐰",
+      "cover": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "path": "/photos/rabbits"
+    },
+    {
+      "id": 5,
+      "name": "birds",
+      "emoji": "🐦",
+      "cover": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "path": "/photos/birds"
+    },
+    {
+      "id": 6,
+      "name": "fishes",
+      "emoji": "🐠",
+      "cover": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "path": "/photos/fishes"
+    }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "src": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "userId": 1,
+      "likes": 40
+    },
+    {
+      "id": 1,
+      "categoryId": 1,
+      "src": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "userId": 1,
+      "likes": 0
+    },
+    {
+      "id": 1,
+      "categoryId": 1,
+      "src": "http://emmamaree.com/wp-content/uploads/2014/07/wpid-wp-1406070870758.jpeg",
+      "userId": 1,
+      "likes": 0
+    }
+  ]
+}
