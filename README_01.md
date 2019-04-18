@@ -50,7 +50,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
   plugins: [new HtmlWebpackPlugin()]
 ```
 
-Ya podemos volver a empaquetar nuestra aplicación para ver qué ocurre con esto. Y podremos observar que en la carpeta `dist` ahora tenemos un archivo `index.html` donde tiene inyectado el `<script>` con el bundle.
+Ya podemos volver a empaquetar nuestra aplicación para ver qué ocurre con esto. Y podremos observar que en la carpeta `dist` ahora tenemos un archivo `index.html` donde tiene inyectado el `<script>` con el bundle. Este archivo `index.html` ha sido creado por una plantilla por defecto pero, como verás más adelante, podemos cambiar y crear una propia.
 
 Instalamos el servidor de desarrollo de webpack.
 ```
@@ -100,6 +100,16 @@ Ya ha terminado la instalación y ahora nos toca cambiar la configuración de we
 ```
 
 Si volvemos a levantar el servidor de desarrollo de Webpack, veremos que ahora sí ha compilado correctamente nuestra aplicación. Y accediendo a localhost:8080 veremos nuestra aplicación con el mensaje que esperamos.
+
+Vamos a abrir las herramientas de desarrollo. Nos dice que no es recomendable renderizar componentes directamente en el elemento <body> del componente, ya que suelen ser manipulados por scripts de terceros y puede traernos problemas en el futuro. Para solucionarlo, vamos a tener que generar nuestro propio index.html.
+
+Para eso, tenemos que crear un archivo `index.html` en la carpeta `src`. Utilizamos la abreviación de Emmet para crear una plantilla desde cero. Vamos a cambiarle el título por el nombre de nuestra aplicación y vamos a crear un `<div id='app'></div>` donde renderizaremos nuestra aplicación. Ahora, para que usar esta plantilla, deberás actualizar el archivo `webpack.config.js`. Allí en la sección de plugins, tenemos que pasarle una nueva configuración al plugin de Html para indicarle qué template queremos que utilice.
+
+```json
+plugins: [new HtmlWebpackPlugin({ template: 'src/index.html' })]
+```
+
+Recargamos el servidor de desarrollo para que tome los cambios y vemos que ahora está utilizando nuestra plantilla HTML. Ahora, para eliminar la advertencia, vamos al archivo `index.js` y allí le indicamos dónde queremos que se renderice nuestro elemento, que será en el div que hemos creado.
 
 Con esto ya tendríamos el comienzo de nuestra aplicación de React. Antes de continuar, vamos a hacer que la experiencia de desarrollo sea la adecuada instalando Standard. Standard nos va a proporcionar unas reglas de lintado y formateo de nuestro código, basado en no usar puntos y coma, de forma que tendremos que hacer las minimas configuraciones posible. Poner puntos y coma o no en Javascript ese una preferencia muy personal, en este caso voy a usar este linter, pero es tu decisión usar este u otro. Siéntete libre de usar el que más te guste.
 
