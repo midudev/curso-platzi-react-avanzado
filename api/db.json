@@ -1,0 +1,140 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Daniela",
+      "email": "dani@gmail.com",
+      "isPremium": true,
+      "favs": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "fe5c1ee0-61d1-11e9-ad05-73d0efdbd7ae",
+      "name": "Brie Larson",
+      "email": "brie.larson@gmail.com",
+      "password": "$2b$10$193JOFnQScKx/Q2BW/rmVuNloOIDO.UULgHUIfQwgUGAADAZJgLd2",
+      "isPremium": true,
+      "favs": [2, 4]
+    }
+  ],
+
+  
+  "categories": [
+    {
+      "id": 1,
+      "name": "cats",
+      "emoji": "🐱",
+      "cover": "https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_cats.jpg",
+      "path": "/photos/cats"
+    },
+    {
+      "id": 2,
+      "name": "dogs",
+      "emoji": "🐶",
+      "cover": "https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_dogs.jpg",
+      "path": "/photos/dogs"
+    },
+    {
+      "id": 3,
+      "name": "hamsters",
+      "emoji": "🐹",
+      "cover": "https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_hamsters.jpg",
+      "path": "/photos/hamsters"
+    },
+    {
+      "id": 4,
+      "name": "rabbits",
+      "emoji": "🐰",
+      "cover": "https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_rabbits.jpg",
+      "path": "/photos/rabbits"
+    },
+    {
+      "id": 5,
+      "name": "birds",
+      "emoji": "🐦",
+      "cover": "https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_birds.jpg",
+      "path": "/photos/birds"
+    },
+    {
+      "id": 6,
+      "name": "fishes",
+      "emoji": "🐠",
+      "cover": "https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_fishes.jpg",
+      "path": "/photos/fishes"
+    }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 40
+    },
+    {
+      "id": 2,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 0
+    },
+    {
+      "id": 3,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 0
+    },
+    {
+      "id": 4,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 40
+    },
+    {
+      "id": 5,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 0
+    },
+    {
+      "id": 6,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 0
+    },
+    {
+      "id": 7,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 40
+    },
+    {
+      "id": 8,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 0
+    },
+    {
+      "id": 9,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 0
+    },
+    {
+      "id": 10,
+      "categoryId": 1,
+      "src": "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "userId": 1,
+      "likes": 0
+    }
+  ]
+}
