@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Article, Button, Img, Footer } from './styles'
+import { Article, Button, Img, ImgWrapper, Footer } from './styles'
 
 import { MdFavoriteBorder, MdFavorite, MdSend } from 'react-icons/md'
 
 const SIZE_ICONS = '24px'
 
-export default function PhotoCard ({ id, likes = 0, src }) {
+export const PhotoCard = ({ id, likes = 0, src }) => {
   const [countLikes, setCountLikes] = useState(likes)
   const [liked, setLiked] = useState(false)
 
@@ -21,7 +21,9 @@ export default function PhotoCard ({ id, likes = 0, src }) {
 
   return (
     <Article>
-      <Img src={src} onDoubleClick={onClickLike} />
+      <ImgWrapper>
+        <Img src={src} onDoubleClick={onClickLike} />
+      </ImgWrapper>
       <Footer>
         <Button onClick={onClickLike}>
           <FavIcon size={SIZE_ICONS} /><span>{countLikes} likes!</span>

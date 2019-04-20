@@ -5,7 +5,7 @@ import { Button, Nav } from './styles'
 
 const ICON_SIZE = '32px'
 
-export default function NavBar () {
+export const NavBar = () => {
   return (
     <Nav>
       <Button active><MdHome size={ICON_SIZE} /></Button>

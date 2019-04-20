@@ -1,7 +1,7 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import ListOfCategories from '../../components/ListOfCategories'
+import { ListOfCategories, ListOfCategoriesPlaceholder } from '../../components/ListOfCategories'
 
 const GET_CATEGORIES = gql`
   {
@@ -18,7 +18,7 @@ const GET_CATEGORIES = gql`
 export const FetchListOfCategories = () => (
   <Query query={GET_CATEGORIES}>
     {({ loading, error, data }) => {
-      if (loading) return 'Loading...'
+      if (loading) return <ListOfCategoriesPlaceholder />
       if (error) return `Error! ${error.message}`
 
       const { categories } = data

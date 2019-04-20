@@ -1,7 +1,7 @@
 import React from 'react'
 import { Picture } from './styles'
 
-const Logo = () => (
+export const Logo = () => (
   <Picture>
     <svg viewBox='72 0 240 90' width='150'>
       <defs>
@@ -14,5 +14,3 @@ const Logo = () => (
     </svg>
   </Picture>
 )
-
-export default Logo

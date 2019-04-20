@@ -1,10 +1,9 @@
 import React from 'react'
 
-import Category from '../Category'
-import { categories as categoriesData } from '../../mock-data'
+import { Category } from '../Category'
 import { List, Item } from './styles'
 
-export default function ListOfCategories ({ categories = categoriesData } = {}) {
+export const ListOfCategories = ({ categories } = {}) => {
   return (
     <List>
       {categories.map(category => (
@@ -15,3 +14,12 @@ export default function ListOfCategories ({ categories = categoriesData } = {}) 
     </List>
   )
 }
+
+export const ListOfCategoriesPlaceholder = () => (
+  <List>
+    <Item><Category /></Item>
+    <Item><Category /></Item>
+    <Item><Category /></Item>
+    <Item><Category /></Item>
+  </List>
+)
