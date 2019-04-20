@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function useImageIsLoaded ({ src }) {
+export const useImageIsLoaded = ({ src }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(function () {

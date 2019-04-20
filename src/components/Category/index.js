@@ -1,11 +1,11 @@
 import React from 'react'
 import { Anchor, Img, Placeholder, Span } from './styles'
 
-import useImageIsLoaded from '../../hooks/useImageIsLoaded'
+import { useImageIsLoaded } from '../../hooks/useImageIsLoaded'
 
 const DEFAULT_IMAGE = 'https://bit.ly/category-default-image'
 
-const Category = ({ path, cover = DEFAULT_IMAGE, emoji = '❓' }) => {
+export const Category = ({ path, cover = DEFAULT_IMAGE, emoji = '❓' }) => {
   const imageIsLoaded = useImageIsLoaded({ src: cover })
 
   return (
@@ -15,5 +15,3 @@ const Category = ({ path, cover = DEFAULT_IMAGE, emoji = '❓' }) => {
     </Anchor>
   )
 }
-
-export default Category
