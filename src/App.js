@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
 import Logo from './components/Logo'
-import ListOfCategories from './components/ListOfCategories'
+import { FetchListOfCategories } from './containers/FetchListOfCategories'
 import ListOfPhotoCards from './components/ListOfPhotoCards'
 import NavBar from './components/NavBar'
 
@@ -10,7 +10,7 @@ export default function App () {
     <Fragment>
       <Logo />
       <div>
-        <ListOfCategories />
+        <FetchListOfCategories />
         <ListOfPhotoCards />
         <NavBar />
       </div>
