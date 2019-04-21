@@ -1,19 +1,39 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { Router } from '@reach/router'
 
-import { Logo } from './components/Logo'
-import { FetchListOfCategories } from './containers/FetchListOfCategories'
-import { FetchListOfPhotos } from './containers/FetchListOfPhotos'
+import Context, { Provider } from './context'
+
 import { NavBar } from './components/NavBar'
+
+import { Home } from './pages/Home'
+import { Detail } from './pages/Detail'
+import { Favs } from './pages/Favs'
+import { Profile } from './pages/Profile'
+import { NotRegistered } from './pages/NotRegistered'
 
 export default function App () {
   return (
-    <Fragment>
-      <Logo />
-      <div>
-        <FetchListOfCategories />
-        <FetchListOfPhotos />
-        <NavBar />
-      </div>
-    </Fragment>
+    <Provider>
+      <Router>
+        <Home path='/' />
+        <Detail path='detail/:id' />
+      </Router>
+
+      <Context.Consumer>
+        {
+          ({ isAuth }) =>
+            isAuth
+              ? <Router>
+                <Favs path='favs' />
+                <Profile path='user' />
+              </Router>
+              : <Router>
+                <NotRegistered path='favs' />
+                <NotRegistered path='user' />
+              </Router>
+        }
+      </Context.Consumer>
+      <NavBar />
+    </Provider>
   )
 }
