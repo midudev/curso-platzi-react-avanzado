@@ -1,3 +1,5 @@
+# 03
+
 Vamos a instalar las dependencias de React Apollo
 
 > Explicar qué es apollo-boost
@@ -65,4 +67,5 @@ En las herramientas de desarrollo, podemos ver que nos da un pequeño error, ya 
 
 También arreglamos nuestro hook de forma que sólo funcione si le estamos pasando una imagen como src y así no nos de ningún problema.
 
-También eliminamos los datos de prueba que estábamos cargando en el componente `ListOfCategories`
+También eliminamos los datos de prueba que estábamos cargando en el componente `ListOfCategories`.
+
