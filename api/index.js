@@ -16,9 +16,10 @@ const auth = jwt({
 const db = require("./adapter");
 
 const server = new ApolloServer({
+  cors: false, // do this only for dev purposes
+  playground: true, // do this only for dev purposes
   typeDefs,
   resolvers,
-  playground: true,
   context: ({ req }) => {
     const { id, email } = req.user || {}
     return { id, email }
@@ -26,6 +27,14 @@ const server = new ApolloServer({
 })
 
 app.use(auth)
+const errorHandler = (err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err);
+  }
+  const { status } = err;
+  res.status(status).json(err);
+};
+app.use(errorHandler)
 server.applyMiddleware({ app, path: '/graphql' });
 
 app.listen(PORT, () =>
