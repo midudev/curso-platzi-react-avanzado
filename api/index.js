@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require('cors')
 const { ApolloServer } = require("apollo-server-express")
 const { resolvers, typeDefs } = require("./schema")
 const jwt = require("express-jwt")
@@ -9,6 +10,8 @@ const PORT = process.env.PORT || 3500
 const app = express()
 const { categories } = require('./db.json')
 
+app.use(cors())
+
 // auth middleware
 const auth = jwt({
   secret: process.env.JWT_SECRET,
@@ -18,7 +21,6 @@ const auth = jwt({
 const db = require("./adapter")
 
 const server = new ApolloServer({
-  cors: false, // do this only for dev purposes
   playground: true, // do this only for dev purposes
   typeDefs,
   resolvers,
@@ -29,6 +31,7 @@ const server = new ApolloServer({
 })
 
 app.use(auth)
+
 const errorHandler = (err, req, res, next) => {
   if (res.headersSent) {
     return next(err)
@@ -37,11 +40,9 @@ const errorHandler = (err, req, res, next) => {
   res.status(status).json(err)
 }
 app.use(errorHandler)
-server.applyMiddleware({ app, path: '/graphql', cors: false })
+server.applyMiddleware({ app, path: '/graphql' })
 
 app.get('/categories', function (req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   res.send(categories)
 })
 
