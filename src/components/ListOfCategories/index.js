@@ -1,14 +1,20 @@
 import React from 'react'
 
+import { useGetCategories } from '../../hooks/useGetCategories'
+
 import { Category } from '../Category'
 import { List, Item } from './styles'
 
-export const ListOfCategories = ({ categories } = {}) => {
+export const ListOfCategories = () => {
+  const { categories } = useGetCategories()
+
   return (
     <List>
       {categories.map(category => (
         <Item key={category.id}>
-          <Category {...category} />
+          <Category
+            {...category}
+          />
         </Item>
       ))}
     </List>

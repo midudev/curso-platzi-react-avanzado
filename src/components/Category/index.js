@@ -1,15 +1,11 @@
 import React from 'react'
-import { Anchor, Img, Placeholder, Span } from './styles'
+import { Link, Img, Span } from './styles'
 
-import { useImageIsLoaded } from '../../hooks/useImageIsLoaded'
-
-export const Category = ({ path, cover, emoji = '❓' }) => {
-  const imageIsLoaded = useImageIsLoaded({ src: cover })
-
+export const Category = ({ id, cover, emoji = '' }) => {
   return (
-    <Anchor href={path}>
-      {imageIsLoaded ? <Img src={cover} /> : <Placeholder />}
+    <Link to={`/pet/${id}`}>
+      <Img src={cover} />
       <Span>{emoji}</Span>
-    </Anchor>
+    </Link>
   )
 }

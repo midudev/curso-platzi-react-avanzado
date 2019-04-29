@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { Article, Button, Img, ImgWrapper, Footer } from './styles'
+import { Link } from '@reach/router'
+import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
 
-import { MdFavoriteBorder, MdFavorite, MdSend } from 'react-icons/md'
+import { Article, Button, Img, ImgWrapper } from './styles'
+import { MutationLike } from '../../requests/MutationLike'
 
 const SIZE_ICONS = '24px'
 
-export const PhotoCard = ({ id, likes = 0, src }) => {
+export const PhotoCard = ({ id, liked: initialLiked, likes = 0, src }) => {
   const [countLikes, setCountLikes] = useState(likes)
-  const [liked, setLiked] = useState(false)
+  const [liked, setLiked] = useState(initialLiked)
 
   const onClickLike = () => {
     const op = liked ? -1 : 1
@@ -21,15 +23,25 @@ export const PhotoCard = ({ id, likes = 0, src }) => {
 
   return (
     <Article>
-      <ImgWrapper>
-        <Img src={src} onDoubleClick={onClickLike} />
-      </ImgWrapper>
-      <Footer>
-        <Button onClick={onClickLike}>
-          <FavIcon size={SIZE_ICONS} /><span>{countLikes} likes!</span>
-        </Button>
-        <Button><MdSend size={SIZE_ICONS} /></Button>
-      </Footer>
+      <Link to={`/detail/${id}`}>
+        <ImgWrapper>
+          <Img src={src} />
+        </ImgWrapper>
+      </Link>
+
+      <MutationLike>
+        {
+          ({ doToggleLike }) => (
+            <Button onClick={() => {
+              doToggleLike({ id })
+              onClickLike()
+            }}>
+              <FavIcon size={SIZE_ICONS} /><span>{countLikes} likes!</span>
+            </Button>
+          )
+        }
+      </MutationLike>
+
     </Article>
   )
 }
