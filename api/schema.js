@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt')
 const typeDefs = gql`
   type User {
     id: ID
+    avatar: String
     name: String
     email: String
     isPremium: Boolean
@@ -18,6 +19,7 @@ const typeDefs = gql`
     categoryId: Int
     src: String
     likes: Int
+    liked: Boolean
     userId: ID
   }
 
@@ -32,11 +34,12 @@ const typeDefs = gql`
   type Query {
     favs: [Photo]
     categories: [Category]
-    photos: [Photo]
+    photos(categoryId: ID): [Photo],
+    photo(id: ID!): Photo
   }
 
   input LikePhoto {
-    photoId: Int!
+    id: ID!
   }
 
   input UserCredentials {
@@ -51,40 +54,76 @@ const typeDefs = gql`
   }
 `
 
+function checkIsUserLogged (context) {
+  const {email, id} = context
+  // check if the user is logged
+  if (!id) throw new Error('you must be logged in to perform this action')
+  // find the user and check if it exists
+  const user = userModel.find({email})
+  // if user doesnt exist, throw an error
+  if (!user) throw new Error('user does not exist')
+  return user
+}
+
+function tryGetFavsFromUserLogged (context) {
+  try {
+    const {email} = checkIsUserLogged(context)
+    const user = userModel.find({email})
+    return user.favs
+  } catch(e) {
+    return []
+  }
+}
+
 const resolvers = {
   Mutation: {
     likePhoto: (_, { input }, context) => {
-      const {email, id} = context
-      // check if the user is logged
-      if (!id) throw new Error('you must be logged in to query this schema');
-      // find the user and check if it exists
-      const user = userModel.find({email})
-      if (!user) throw new Error('user does not exist')
+      const { id: userId } = checkIsUserLogged(context)
 
       // find the photo by id and throw an error if it doesn't exist
-      const {photoId} = input
+      const {id: photoId} = input
       const photo = photosModel.find({ id: photoId })
       if (!photo) {
         throw new Error(`Couldn't find photo with id ${photoId}`)
       }
 
-      // put a like to the photo and add the like to the user database
-      photosModel.like({ id: photoId })
-      userModel.addFav({ id, photoId, })
+      const hasFav = userModel.hasFav({ id: userId, photoId })
 
-      return photo
+      if (hasFav) {
+        photosModel.removeLike({ id: photoId })
+        userModel.removeFav({ id: userId, photoId, })
+      } else {
+        // put a like to the photo and add the like to the user database
+        photosModel.addLike({ id: photoId })
+        userModel.addFav({ id: userId, photoId, })
+      }
+
+      // get the updated photos model
+      const actualPhoto = photosModel.find({ id: photoId })
+
+      return actualPhoto
     },
     // Handle user signup
     async signup (_, { input }) {
+      // add 1 second of delay in order to see loading stuff
+      await new Promise(resolve => setTimeout(resolve, 1000))
+
       const {email, password} = input
-      const user = await userModel.create({
+
+      const user = await userModel.find({ email })
+
+      if (user) {
+        throw new Error('User already exists')
+      }
+
+      const newUser = await userModel.create({
         email,
         password
       })
 
       // return json web token
       return jsonwebtoken.sign(
-        { id: user.id, email: user.email },
+        { id: newUser.id, email: newUser.email },
         process.env.JWT_SECRET,
         { expiresIn: '1y' }
       )
@@ -92,7 +131,10 @@ const resolvers = {
 
     // Handles user login
     async login (_, { input }) {
-      const { email, password} = input
+      // add 1 second of delay in order to see loading stuff
+      await new Promise(resolve => setTimeout(resolve, 1000))
+
+      const { email, password } = input
       const user = await userModel.find({ email })
 
       if (!user) {
@@ -114,15 +156,21 @@ const resolvers = {
     }
   },
   Query: {
-    favs() {
-      const favs = userModel.find()
+    favs(_, __, context) {
+      const {email} = checkIsUserLogged(context)
+      const {favs} = userModel.find({email})
+      return photosModel.list({ ids: favs, favs })
     },
     categories() {
       return categoriesModel.list()
     },
-
-    photos() {
-      return photosModel.list()
+    photo(_, {id}, context) {
+      const favs = tryGetFavsFromUserLogged(context)
+      return photosModel.find({id, favs})
+    },
+    photos(_, {categoryId}, context) {
+      const favs = tryGetFavsFromUserLogged(context)
+      return photosModel.list({categoryId, favs})
     }
   }
 }
