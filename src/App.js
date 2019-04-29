@@ -16,6 +16,7 @@ export default function App () {
     <Provider>
       <Router>
         <Home path='/' />
+        <Home path='/pet/:id' />
         <Detail path='detail/:id' />
       </Router>
 
