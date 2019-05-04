@@ -11,9 +11,15 @@ import { Favs } from './pages/Favs'
 import { Profile } from './pages/Profile'
 import { NotRegistered } from './pages/NotRegistered'
 
+import { Helmet } from 'react-helmet'
+
 export default function App () {
   return (
     <Provider>
+      <Helmet>
+        <title>Petgram - Fotos de animales</title>
+        <meta name='description' content='Tu aplicación para descubrir fotos de animales domésticos, hecha con React ⚛️' />
+      </Helmet>
       <Router>
         <Home path='/' />
         <Home path='/pet/:id' />
