@@ -4,6 +4,7 @@ const photosModel = require('./models/photosModel')
 const { gql } = require('apollo-server-express')
 const jsonwebtoken = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const { JWT_SECRET } = require('./env')
 
 const typeDefs = gql`
   type User {
@@ -124,7 +125,7 @@ const resolvers = {
       // return json web token
       return jsonwebtoken.sign(
         { id: newUser.id, email: newUser.email },
-        process.env.JWT_SECRET,
+        JWT_SECRET,
         { expiresIn: '1y' }
       )
     },
@@ -150,7 +151,7 @@ const resolvers = {
       // return json web token
       return jsonwebtoken.sign(
         { id: user.id, email: user.email },
-        process.env.JWT_SECRET,
+        JWT_SECRET,
         { expiresIn: '1d' }
       )
     }

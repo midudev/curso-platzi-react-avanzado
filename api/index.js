@@ -3,10 +3,11 @@ const cors = require('cors')
 const { ApolloServer } = require('apollo-server-express')
 const { resolvers, typeDefs } = require('./schema')
 const jwt = require('express-jwt')
+const { JWT_SECRET } = require('./env')
 
-require('dotenv').config()
+// initialize db
+require('./adapter')
 
-const PORT = process.env.PORT || 3500
 const app = express()
 const { categories } = require('./db.json')
 
@@ -14,13 +15,12 @@ app.use(cors())
 
 // auth middleware
 const auth = jwt({
-  secret: process.env.JWT_SECRET,
+  secret: JWT_SECRET,
   credentialsRequired: false
 })
 
-const db = require('./adapter')
-
 const server = new ApolloServer({
+  introspection: true,
   playground: true, // do this only for dev purposes
   typeDefs,
   resolvers,
@@ -36,6 +36,9 @@ const errorHandler = (err, req, res, next) => {
   if (res.headersSent) {
     return next(err)
   }
+
+  // if (err.code === 'invalid_token') return next()
+
   const { status } = err
   res.status(status).json(err)
 }
@@ -46,6 +49,11 @@ app.get('/categories', function (req, res) {
   res.send(categories)
 })
 
-app.listen(PORT, () =>
-  console.log(`Listening at http://localhost:${PORT}/graphql`)
-)
+if (!process.env.NOW_REGION) {
+  const PORT = process.env.PORT || 3500
+  app.listen(PORT, () =>
+    console.log(`Listening at http://localhost:${PORT}/graphql`)
+  )
+}
+
+module.exports = app
