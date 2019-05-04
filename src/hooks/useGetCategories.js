@@ -7,7 +7,8 @@ export const useGetCategories = () => {
 
   useEffect(() => {
     setLoading(true)
-    window.fetch('http://localhost:3500/categories')
+    // window.fetch('http://localhost:3500/categories')
+    window.fetch('https://petgram-api.midudev.now.sh/categories')
       .then(res => res.json())
       .then(categories => {
         setCategories(categories)
