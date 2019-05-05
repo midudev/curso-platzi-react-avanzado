@@ -32,10 +32,27 @@
     padding-bottom: 10px;
   }
   </style>
-  <!-- styleTags -->
 </head>
 <body>
-  <div id='app'><!-- content --></div>
-  <!-- initialState -->
+  <div id='app'></div>
+
+  <noscript>
+    <style>p { display: block; font-size: 24px; padding: 64px 16px; position: absolute; text-align: center; width: 100%; }</style>
+    <p>⚠️<br />Esta página es puramente<br />Client Side Rendering!<br /><br />Sin Javascript ☕,<br />no funciona 🙅‍♂️.</p>
+  </noscript>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(registration => {
+          console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+          console.error(registrationError)
+        })
+    })
+  }
+  </script>
 </body>
 </html>
