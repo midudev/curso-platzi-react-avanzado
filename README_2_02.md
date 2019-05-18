@@ -34,14 +34,35 @@ Activar Eslint Autofix On Save
 
 Ahora que ya tenemos todo nuestro entorno preparado vamos a deployar tanto el servidor como nuestra aplicación. Para ello, vamos a utilizar el servicio de Now. Vamos a crear una cuenta totalmente gratuita, para ello, lo único que tenéis que hacer es acceder a `now.sh` y acceder con vuestra cuenta de GitHub.
 
-Una vez le damos los permisos necesarios, vamos a ir a la sección de Tokens y creamos uno. Con este token lo vamos a añadir a nuestro package.json donde ya tenemos un script que nos va a realizar el deploy del servidor:
+Una vez le damos los permisos necesarios, ya podremos entrar en nuestro perfil y tendremos diferentes opciones. Una: instalar la app, otra crear los tokens manualmente e instalar el CLI manualmente.
 
+Yo os recomiendo instalar la app, ya que además de ser muy útil, os soluciona tener que preocuparos los tokens.
+
+Vamos a hacer un deploy del server. Antes de continuar, tened en cuenta que es posible que el nombre puede estar ya ocupado, si ese es el caso, cambiadlo por otro dentro de now.json, el que prefiráis.
+
+Ahora, desde nuestra terminal, entramos a la carpeta `api` y allí ejecutamos:
+`now`.
+
+Una vez termine, vamos a comprobar que ha funcionado. Vamos a la dirección que nos ha dado y comprobamos.
+
+Luego, vamos a hacer el primer deploy de nuestra app. Volvemos a su carpeta y vamos a crear un archivo `now.json` para configurar algunas cosas del despliegue. Este archivo debe indicar, la versión de deploy que queremos usar y el nombre del deploy.
+
+También vamos a indicarle los builds, estos son como el tipo de construcción de nuestra aplicación. Aquí le decimos que la fuente será el package.json y que queremos que use el build del tipo @now/static-build.
+
+También necesitaremos indicarle qué tiene que hacer con las rutas.
 ```
-"deploy": "now -t <token>"
+{
+  "version": 2,
+  "name": "petgram",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ],
+  "routes": [
+    {"src": "/(.*).js", "dest": "/$1.js"},
+    {"src": "/(.*).json", "dest": "/$1.json"},
+    {"src": "/.*", "dest": "/index.html"}
+  ]
+}
 ```
 
-Antes de continuar, tened en cuenta que es posible que el nombre puede estar ya ocupado, si ese es el caso, cambiadlo por otro, el que prefiráis. 
-
-```
-npm run deploy
-```
+Una vez tenemos esto, ya estamos preparados para compartir con todos nuestros compañeros nuestra URL, donde podremos enseñarle nuestro proyecto. ¡Seguimos!
