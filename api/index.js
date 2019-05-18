@@ -4,16 +4,12 @@ const { ApolloServer } = require('apollo-server-express')
 const { resolvers, typeDefs } = require('./schema')
 const jwt = require('express-jwt')
 
-require('dotenv').config()
+// this is not secure! this is for dev purposes
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'somereallylongsecretkey'
 
 const PORT = process.env.PORT || 3500
 const app = express()
-let categories
-if (!process.env.NOW_REGION) {
-  categories = require('./db.json').categories
-} else {
-  categories = require('/tmp/db.json').categories
-}
+const { categories } = require('./db.json')
 
 app.use(cors())
 
@@ -26,6 +22,7 @@ const auth = jwt({
 require('./adapter')
 
 const server = new ApolloServer({
+  introspection: true, // do this only for dev purposes
   playground: true, // do this only for dev purposes
   typeDefs,
   resolvers,
