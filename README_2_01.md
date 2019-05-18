@@ -1,5 +1,3 @@
-# 01
-
 Iniciamos el proyecto con:
 ```
 npm init
