@@ -19,7 +19,6 @@
     "webpack-dev-server": "^3.4.1"
   },
   "scripts": {
-    "deploy": "now -t <tu-token>",
     "build": "webpack -p",
     "now-build": "npm run build",
     "lint": "standard",
