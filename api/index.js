@@ -1,10 +1,10 @@
-const express = require("express")
+const express = require('express')
 const cors = require('cors')
-const { ApolloServer } = require("apollo-server-express")
-const { resolvers, typeDefs } = require("./schema")
-const jwt = require("express-jwt")
+const { ApolloServer } = require('apollo-server-express')
+const { resolvers, typeDefs } = require('./schema')
+const jwt = require('express-jwt')
 
-require("dotenv").config()
+require('dotenv').config()
 
 const PORT = process.env.PORT || 3500
 const app = express()
@@ -18,7 +18,7 @@ const auth = jwt({
   credentialsRequired: false
 })
 
-const db = require("./adapter")
+require('./adapter')
 
 const server = new ApolloServer({
   playground: true, // do this only for dev purposes
