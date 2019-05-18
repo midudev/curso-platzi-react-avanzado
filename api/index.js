@@ -1,10 +1,11 @@
-const express = require("express")
+const express = require('express')
 const cors = require('cors')
-const { ApolloServer } = require("apollo-server-express")
-const { resolvers, typeDefs } = require("./schema")
-const jwt = require("express-jwt")
+const { ApolloServer } = require('apollo-server-express')
+const { resolvers, typeDefs } = require('./schema')
+const jwt = require('express-jwt')
 
-require("dotenv").config()
+// this is not secure! this is for dev purposes
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'somereallylongsecretkey'
 
 const PORT = process.env.PORT || 3500
 const app = express()
@@ -18,9 +19,10 @@ const auth = jwt({
   credentialsRequired: false
 })
 
-const db = require("./adapter")
+require('./adapter')
 
 const server = new ApolloServer({
+  introspection: true, // do this only for dev purposes
   playground: true, // do this only for dev purposes
   typeDefs,
   resolvers,
@@ -46,6 +48,10 @@ app.get('/categories', function (req, res) {
   res.send(categories)
 })
 
-app.listen(PORT, () =>
-  console.log(`Listening at http://localhost:${PORT}/graphql`)
-)
+if (!process.env.NOW_REGION) {
+  app.listen(PORT, () => {
+    console.log(`Listening at http://localhost:${PORT}/graphql`)
+  })
+}
+
+module.exports = app
