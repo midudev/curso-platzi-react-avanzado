@@ -34,7 +34,13 @@ Activar Eslint Autofix On Save
 
 Ahora que ya tenemos todo nuestro entorno preparado vamos a deployar tanto el servidor como nuestra aplicación. Para ello, vamos a utilizar el servicio de Now. Vamos a crear una cuenta totalmente gratuita, para ello, lo único que tenéis que hacer es acceder a `now.sh` y acceder con vuestra cuenta de GitHub.
 
-Una vez le damos los permisos necesarios, vamos a ir a la sección de Tokens y creamos uno. Este token lo vamos a añadir a nuestro package.json donde ya tenemos un script que nos va a realizar el deploy de tanto el servidor como nuestra aplicación en el cliente.
+Una vez le damos los permisos necesarios, vamos a ir a la sección de Tokens y creamos uno. Con este token lo vamos a añadir a nuestro package.json donde ya tenemos un script que nos va a realizar el deploy del servidor:
+
+```
+"deploy": "now -t <token>"
+```
+
+Antes de continuar, tened en cuenta que es posible que el nombre puede estar ya ocupado, si ese es el caso, cambiadlo por otro, el que prefiráis. 
 
 ```
 npm run deploy
