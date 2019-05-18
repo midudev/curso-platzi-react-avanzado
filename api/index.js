@@ -8,7 +8,12 @@ require('dotenv').config()
 
 const PORT = process.env.PORT || 3500
 const app = express()
-const { categories } = require('./db.json')
+let categories
+if (!process.env.NOW_REGION) {
+  categories = require('./db.json').categories
+} else {
+  categories = require('/tmp/db.json').categories
+}
 
 app.use(cors())
 
@@ -46,6 +51,10 @@ app.get('/categories', function (req, res) {
   res.send(categories)
 })
 
-app.listen(PORT, () =>
-  console.log(`Listening at http://localhost:${PORT}/graphql`)
-)
+if (!process.env.NOW_REGION) {
+  app.listen(PORT, () => {
+    console.log(`Listening at http://localhost:${PORT}/graphql`)
+  })
+}
+
+module.exports = app

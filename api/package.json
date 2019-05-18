@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "now-build": "cp db.json /tmp/db.json",
     "start:api": "NODE_ENV=production node index.js",
     "dev:api": "nodemon index.js --ignore db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
