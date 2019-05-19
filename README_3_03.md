@@ -66,9 +66,21 @@ Lo usamos así:
 Vemos que es muy pequeño, le añadimos el size:
 `<MdFavoriteBorder size='24px' /> {likes} likes!>`
 
+Vemos que no queda centrado, estilamos usando un selector anidado.
+```js
+export const Button = styled.button`
+  align-items: center;
+  display: flex;
+  padding-top: 8px;
+  & svg {
+    margin-right: 4px;
+  }
+`
+```
+
 Ahora, vamos a crear el componente <ListOfPhotoCards>, que es muy sencillito y nos va a permitir mostrar listas completas de fotos en nuestra aplicación.
 
-Creamos el archivo `/components/ListOfPhotoCardS/index.js`
+Creamos el archivo `/components/ListOfPhotoCards/index.js`
 
 ```
 import React from 'react'
