@@ -39,6 +39,8 @@ export const Item = styled.li`
 `
 ```
 
+Usamos los estilos en nuestro componente.
+
 Vemos que todavía no se ve del todo bien. Tiene los puntos de las listas y además hay un efecto al hacer scroll un poco molesto. Añadimos estilos globales.
 
 Crear archivo `GlobalStyles` al lado del `App.js`.
