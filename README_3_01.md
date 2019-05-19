@@ -11,14 +11,12 @@ import React from 'react'
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_cats.jpg'
 
-const Category = ({ path, cover = DEFAULT_IMAGE, emoji = '❓' }) => (
+export const Category = ({ path, cover = DEFAULT_IMAGE, emoji = '❓' }) => (
   <a href={path}>
     <img src={cover} />
     {emoji}
   </a>
 )
-
-export default Category
 ```
 
 Lo usamos en el componente <App />
