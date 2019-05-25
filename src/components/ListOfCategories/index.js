@@ -41,6 +41,5 @@ export const ListOfCategories = () => {
       {renderList()}
       {showFixed && renderList(true)}
     </React.Fragment>
-
   )
 }
