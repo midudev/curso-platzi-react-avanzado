@@ -171,3 +171,12 @@ npm install babel-eslint -D
 ```
 
 Una vez instalado, vamos a ir a nuestro archivo `package.json` y allí a la configuración de `eslintConfig` añadimos la key `parser`, para indicarle que en lugar de usar el analizador por defecto de eslint, vamos a usar el de `babel-eslint`. Una vez hecho esto, si volvemos al archivo, veremos que el error ha desaparecido.
+
+Ahora que ya lo tenemos todo funcionando, antes de acabar la clase, vamos a desacoplar esta funcionalidad a un custom hook que llamaremos `useNearScreen`.
+
+Copiamos todo lo referente al hook.
+Creamos el archivo `/hooks/useNearScreen.js` y copiamos el contenido.
+Lo amoldamos para usar los imports necesarios.
+Hacemos que devuelva un array con `[show, ref]`.
+
+Importamos y usamos el nuevo custom hook useNearScreen en nuestro componente.

@@ -1,31 +1,26 @@
 import { useState, useRef, useEffect } from 'react'
 
-export const useNearScreen = ({ rootMargin = '0px' } = {}) => {
-  const [isNear, setIsNear] = useState(false)
-  const el = useRef(null)
+export const useNearScreen = () => {
+  const ref = useRef(null)
+  const [show, setShow] = useState(false)
 
-  useEffect(
-    function () {
-      if (typeof el.current === 'undefined') return
+  useEffect(function () {
+    Promise.resolve(
+      typeof window.IntersectionObserver !== 'undefined'
+        ? window.IntersectionObserver
+        : import('intersection-observer')
+    )
+      .then(() => {
+        const observer = new window.IntersectionObserver(function (entries) {
+          const { isIntersecting } = entries[0]
+          if (isIntersecting) {
+            setShow(true)
+            observer.disconnect()
+          }
+        })
+        observer.observe(ref.current)
+      })
+  }, [ref])
 
-      let observer
-
-      const onIntersect = (entries, observer) => {
-        const { isIntersecting } = entries[0]
-
-        if (isIntersecting) {
-          setIsNear(true)
-          observer.disconnect()
-        }
-      }
-
-      observer = new window.IntersectionObserver(onIntersect, { rootMargin })
-      observer.observe(el.current)
-
-      return () => observer && observer.disconnect()
-    },
-    [el, rootMargin]
-  )
-
-  return [isNear, el]
+  return [show, ref]
 }
