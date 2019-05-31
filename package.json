@@ -4,6 +4,7 @@
   "description": "Repositorio con el código del Curso Avanzado de React de Platzi",
   "main": "index.js",
   "dependencies": {
+    "intersection-observer": "^0.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",
@@ -11,8 +12,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.0",
     "html-webpack-plugin": "^3.2.0",
@@ -39,6 +42,7 @@
   },
   "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme",
   "eslintConfig": {
+    "parser": "babel-eslint",
     "extends": "./node_modules/standard/eslintrc.json"
   }
 }
