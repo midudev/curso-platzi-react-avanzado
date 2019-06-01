@@ -4,6 +4,7 @@
   "description": "Repositorio con el código del Curso Avanzado de React de Platzi",
   "main": "index.js",
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "apollo-boost": "^0.4.0",
     "graphql": "^14.3.1",
     "graphql-tag": "^2.10.1",
@@ -32,7 +33,7 @@
     "build": "webpack -p",
     "now-build": "npm run build",
     "lint": "standard",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --history-api-fallback",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

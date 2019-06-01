@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { Router } from '@reach/router'
+
 import { GlobalStyles } from './styles/GlobalStyles'
-import { ListOfCategories } from './components/ListOfCategories'
-import { ListOfPhotoCards } from './containers/ListOfPhotoCards'
+
+import { Home } from './pages/Home'
+
 import { Logo } from './components/Logo'
 import { PhotoCardWithQuery } from './containers/PhotoCardWithQuery'
 
@@ -16,10 +19,10 @@ export default function () {
       {
         detailId
           ? <PhotoCardWithQuery id={detailId} />
-          : <Fragment>
-            <ListOfCategories />
-            <ListOfPhotoCards categoryId={3} />
-          </Fragment>
+          : <Router>
+            <Home path='/' />
+            <Home path='/pet/:id' />
+          </Router>
       }
     </div>
   )
