@@ -50,8 +50,8 @@ Cambiamos el nombre del componente a `const ListOfPhotoCardsComponent` para expo
 
 ```js
 const withPhotos = graphql(gql`
-query getPhotos($categoryId: ID) {
-  photos(categoryId: $categoryId) {
+query getPhotos {
+  photos {
     id
     categoryId
     src
@@ -104,60 +104,4 @@ Ahora también vemos que tenemos un warning en la pantalla y es que la key no es
 <Item key={photo.id}>
 ```
 
-Esto está muy bien pero tenemos que preparar nuestro componente de forma que podamos filtrar por las diferentes categorías que tenemos. Para ello, tenemos que preparar nuestra consulta de forma que podrá aceptar un parámetro de categoria.
-
-```js
-const withPhotos = graphql(gql`
-query getPhotos($categoryId: ID) {
-  photos(categoryId: $categoryId) {
-    ...
-```
-
-Ahora, para utilizar este parámetro tenemos que pasarselo como prop a nuestro componente.
-
-```js en App.js
-<div>
-  <Logo />
-  <GlobalStyles />
-  <ListOfCategories />
-  <ListOfPhotoCards categoryId={2} />
-</div>
-```
-
-Por fin tenemos listo nuestro componente, pero antes de terminar la clase, vamos a extraer todo el componente de orden superior fuera del componente presentacional.
-
-Para eso, creamos el fichero `hoc/withPhotos.js`, allí extraeremos el High Order Component por si queremos utilizarlo más adelante con otro componente visual totalmente distinto.
-
-```js
-import { graphql } from 'react-apollo'
-import { gql } from 'apollo-boost'
-
-export const withPhotos = graphql(gql`
-query getPhotos($categoryId: ID) {
-  photos(categoryId: $categoryId) {
-    id
-    categoryId
-    src
-    likes
-    userId
-    liked
-  }
-}`)
-```
-
-
-
-Y también creamos el archivo `containers/ListOfPhotoCards.js`. En este archivo vamos simplemente a importar el componente visual, importar el HoC y devolver el componente envuelto con esta funcionalidad, para utilizar más adelante.
-
-```js en containers/ListOfPhotoCards.js
-import { ListOfPhotoCardsComponent } from '../components/ListOfPhotoCards'
-import { withPhotos } from '../hoc/wihtPhotos'
-
-export const ListOfPhotoCards = withPhotos(ListOfPhotoCardsComponent)
-```
-
-Ahora en nuestro archivo `App.js` importamos el contenedor en lugar del componente y ya lo tendremos de nuevo funcionando, pero separando claramente cada fichero.
-
-```js en App.js
-import { ListOfPhotoCards } from './containers/ListOfPhotoCards'
-```
+Y con esto, ya tendríamos la lista de fotos en nuestra aplicación, haciendo una petición con GraphQL e integrándola en nuestra aplicación de React.
