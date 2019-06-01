@@ -4,8 +4,12 @@
   "description": "Repositorio con el código del Curso Avanzado de React de Platzi",
   "main": "index.js",
   "dependencies": {
+    "apollo-boost": "^0.4.0",
+    "graphql": "^14.3.1",
+    "graphql-tag": "^2.10.1",
     "intersection-observer": "^0.7.0",
     "react": "^16.8.6",
+    "react-apollo": "^2.5.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",
     "styled-components": "^4.2.0"
