@@ -7,6 +7,7 @@ import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
 
 import { Logo } from './components/Logo'
+import { NavBar } from './components/NavBar'
 
 export default function () {
   return (
@@ -18,6 +19,7 @@ export default function () {
         <Home path='/pet/:id' />
         <Detail path='/detail/:id' />
       </Router>
+      <NavBar />
     </div>
   )
 }
