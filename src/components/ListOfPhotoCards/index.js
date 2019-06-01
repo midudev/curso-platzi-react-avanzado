@@ -6,7 +6,7 @@ import { PhotoCard } from '../PhotoCard'
 export const ListOfPhotoCards = () => {
   return (
     <List>
-      {[1, 2, 3, 4, 5].map(photo => <Item key={photo}><PhotoCard /></Item>)}
+      {[1, 2, 3, 4, 5].map(photo => <Item key={photo}><PhotoCard id={photo} /></Item>)}
     </List>
   )
 }
