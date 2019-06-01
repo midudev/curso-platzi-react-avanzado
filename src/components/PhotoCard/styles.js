@@ -24,12 +24,3 @@ export const Img = styled.img`
   top: 0;
   width: 100%;
 `
-
-export const Button = styled.button`
-  align-items: center;
-  display: flex;
-  padding-top: 8px;
-  & svg {
-    margin-right: 4px;
-  }
-`
