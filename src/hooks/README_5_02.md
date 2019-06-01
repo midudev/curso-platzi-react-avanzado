@@ -48,7 +48,7 @@ import { withPhotos } from '../hocs/withPhotos'
 export const ListOfPhotoCards = withPhotos(ListOfPhotoCardsComponent)
 ```
 
-Ahora en nuestro archivo `App.js` importamos el contenedor en lugar del componente y ya lo tendremos de nuevo funcionando, pero separando claramente cada fichero.
+Ahora en nuestro archivo `App.js` importamos el contenedor en lugar del componente y ya lo tendremos de nuevo funcionando, pero separando claramente cada fichero de forma que los podamos reutilizar en nuestros desarrollos.
 
 ```js en App.js
 import { ListOfPhotoCards } from './containers/ListOfPhotoCards'
