@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const Error = styled.small`
+  font-size: 10px;
+  color: red;
+`
+
 export const Title = styled.h2`
   font-size: 16px;
   font-weight: 500;
@@ -8,6 +13,11 @@ export const Title = styled.h2`
 
 export const Form = styled.form`
   padding: 16px 0;
+
+  &[disabled] {
+    opacity: .3;
+    pointer-events: none;
+  }
 `
 
 export const Input = styled.input`
