@@ -12,9 +12,7 @@ import { NotRegistered } from './pages/NotRegistered'
 import { Logo } from './components/Logo'
 import { NavBar } from './components/NavBar'
 
-const UserLogged = ({ children }) => {
-  return children({ isAuth: false })
-}
+import Context from './Context'
 
 export default function () {
   return (
@@ -27,7 +25,7 @@ export default function () {
         <Detail path='/detail/:id' />
       </Router>
 
-      <UserLogged>
+      <Context.Consumer>
         {
           ({ isAuth }) =>
             isAuth
@@ -40,7 +38,7 @@ export default function () {
                 <NotRegistered path='user' />
               </Router>
         }
-      </UserLogged>
+      </Context.Consumer>
       <NavBar />
     </div>
   )
