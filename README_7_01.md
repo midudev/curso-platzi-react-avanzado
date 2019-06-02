@@ -76,6 +76,15 @@ export default {
 }
 ```
 
+Primero, en el `index.js` ya podemos eliminar el `value` que le pasábamos al Provider, ya que no será necesario:
+
+```js
+ReactDOM.render(
+  <Context.Provider>
+    <ApolloProvider client={client}>
+      <App />
+```
+
 Ahora, en nuestro componente que mostrábamos al usuario cuando no estaba registrado, vamos a añadir un formulario de forma que permitas al usuario que pueda "iniciar sesión". Al menos virtualmente.
 
 ```js
