@@ -12,7 +12,7 @@ export const NotRegistered = () => {
             <Fragment>
               <RegisterMutation>
                 {
-                  (register, { data = {}, loading, error }) => {
+                  (register, { loading, error }) => {
                     const handleSubmit = ({ email, password }) => {
                       const input = { email, password }
                       const variables = { input }

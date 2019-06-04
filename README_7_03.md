@@ -22,7 +22,7 @@ Ahora, ya podemos volver a nuestra página `NotRegistered` y usamos esta mutaci�
 ```js
 <RegisterMutation>
   {
-    (register, { data = {}, loading, error }) => {
+    (register) => {
       const handleSubmit = ({ email, password }) => {
         const input = { email, password }
         const variables = { input }
@@ -43,7 +43,7 @@ Pasamos la prop error hacia abajo y hacemos que muestre el error y se estile.
 ```js
 <RegisterMutation>
   {
-    (register, { data = {}, loading, error }) => {
+    (register, { loading, error }) => {
       const handleSubmit = ({ email, password }) => {
         const input = { email, password }
         const variables = { input }
@@ -57,15 +57,35 @@ Pasamos la prop error hacia abajo y hacemos que muestre el error y se estile.
 </RegisterMutation>
 ```
 
-En el componente UserForm controlamos el error y lo mostramos si lo pasamos por prop:
+En el componente UserForm, controlamos si se está cargando el formulario gracias a la prop `disabled`. Tenemos que añadir también los estilos del formulario para cuando esté disabled y añadimos uno para el error.
+
+```js
+export const Error = styled.small`
+  font-size: 10px;
+  color: red;
+`
+
+export const Form = styled.form`
+  padding: 16px 0;
+
+  &[disabled] {
+    opacity: .3;
+    pointer-events: none;
+  }
+`
+```
+
+Y esto lo usamos para nuestro componente.
 ```js
 <Fragment>
+  { /* Usamos la prop disabled para desactivar el formulario */ }
   <Form disabled={disabled} onSubmit={handleSubmit}>
     <Title>{title}</Title>
     <Input placeholder='Email' {...email} />
     <Input placeholder='Password' type='password' {...password} />
     <Button>{title}</Button>
   </Form>
+  { /* Si tenemos un error lo mostramos */ }
   {error && <Error>{error}</Error>}
 </Fragment>
 ```
