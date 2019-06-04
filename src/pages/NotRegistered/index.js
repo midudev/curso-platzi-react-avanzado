@@ -17,7 +17,7 @@ export const NotRegistered = () => {
                     const handleSubmit = ({ email, password }) => {
                       const input = { email, password }
                       const variables = { input }
-                      register({ variables }).then(activateAuth)
+                      register({ variables }).then(({ data }) => activateAuth(data.signup))
                     }
                     const errorMsg = error && 'No se puede registrar el usuario. Ya existe o los datos no son correctos.'
 
@@ -29,7 +29,7 @@ export const NotRegistered = () => {
                 {(login, { loading, error }) => {
                   const handleSubmit = ({ email, password }) => {
                     const input = { email, password }
-                    login({ variables: { input } }).then(activateAuth)
+                    login({ variables: { input } }).then(({ data }) => activateAuth(data.login))
                   }
                   const errorMsg = error && 'No se puede iniciar sesión. El usuario no existe o el password no es correcto.'
                   return <UserForm disabled={loading} error={errorMsg} title='Iniciar sesión' onSubmit={handleSubmit} />
