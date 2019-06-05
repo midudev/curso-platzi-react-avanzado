@@ -3,8 +3,8 @@ import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 
 const mutation = gql`
-mutation likeAnonymousPhoto($input: LikePhoto!) {
-  likeAnonymousPhoto(input: $input) {
+mutation likePhoto($input: LikePhoto!) {
+  likePhoto(input: $input) {
     id,
     liked,
     likes
