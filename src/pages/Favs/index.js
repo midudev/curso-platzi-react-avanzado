@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { FavsWithQuery } from '../../containers/FavsWithQuery'
+import { Layout } from '../../components/Layout'
 
 export const Favs = ({ favs = [] }) => {
-  return <Fragment>
-    <h1>Favs</h1>
+  return <Layout title='Tus favoritos' subtitle='Aquí tienes las fotos que te han gustado'>
     <FavsWithQuery />
-  </Fragment>
+  </Layout>
 }

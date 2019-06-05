@@ -1,14 +1,15 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../../Context'
 import { UserForm } from '../../components/UserForm'
 import { RegisterMutation } from '../../containers/RegisterMutation'
 import { LoginMutation } from '../../containers/LoginMutation'
+import { Layout } from '../../components/Layout'
 
 export const NotRegistered = () => {
   const { activateAuth } = useContext(Context)
 
   return (
-    <Fragment>
+    <Layout title='Autentificación' subtitle='Inicia sesión o regístrate en Petgram para poder acceder a esta sección'>
       <RegisterMutation>
         {
           (register, { data = {}, loading, error }) => {
@@ -33,6 +34,6 @@ export const NotRegistered = () => {
           return <UserForm disabled={loading} error={errorMsg} title='Iniciar sesión' onSubmit={handleSubmit} />
         }}
       </LoginMutation>
-    </Fragment>
+    </Layout>
   )
 }

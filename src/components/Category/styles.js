@@ -8,6 +8,13 @@ export const Link = styled(LinkRouter)`
   text-align: center;
   text-decoration: none;
   width: 75px;
+
+  &[aria-current] {
+    transform: scale(0.8);
+    img {
+      box-shadow: 0 10px 14px rgba(239, 0, 239, 0.5);
+    }
+  }
 `
 
 export const Image = styled.img`
