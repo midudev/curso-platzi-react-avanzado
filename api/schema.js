@@ -112,8 +112,10 @@ const resolvers = {
         userModel.addFav({ id: userId, photoId, })
       }
 
+      // get favs from user before exiting
+      const favs = tryGetFavsFromUserLogged(context)
       // get the updated photos model
-      const actualPhoto = photosModel.find({ id: photoId })
+      const actualPhoto = photosModel.find({ id: photoId, favs })
 
       return actualPhoto
     },
