@@ -41,13 +41,6 @@ module.exports = {
           urlPattern: new RegExp('https://images.unsplash.com'),
           handler: 'CacheFirst',
           options: {
-            cacheName: 'images-cloudinary'
-          }
-        },
-        {
-          urlPattern: new RegExp('https://images.unsplash.com'),
-          handler: 'CacheFirst',
-          options: {
             cacheName: 'images-unsplash'
           }
         },
