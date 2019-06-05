@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { useInputValue } from '../../hooks/useInputValue'
-import { Error, Form, Input, Button, Title } from './styles'
+import { Error, Form, Input, Title } from './styles'
+import { Button } from '../Button'
 
 export const UserForm = ({ disabled, error, title, onSubmit }) => {
   const email = useInputValue('')
