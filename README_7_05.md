@@ -25,3 +25,21 @@ const [isAuth, setIsAuth] = useState(() => {
 ```
 
 Lo mismo lo repetimos para el formulario de registro, de forma que haremos que el usuario, cuando se registre, pase a estar con la sesión iniciada directamente. Esto no es seguro, ya que normalmente vamos a querer que el usuario tenga que confirmar su correo, pero te dejo ese reto para ti, para sigas aprendiendo.
+
+Ahora vemos que la página de usuario no registrado ha quedado bastante complicada, con un montón de tabulaciones y muy difíciles de leer. Para solucionar esto vamos a usar un hook que nos permitirá leer el contexto en una sóla línea.
+
+Primero, en nuestro contexto, vamos a tener que exportarlo para que se pueda usar:
+```js
+export const Context = createContext()
+```
+
+Ahora, en nuestra página `NotRegistered` vamos a importar el Contexto completo y el hook de `useContext` y lo usamos más adelante para acceder al contexto.
+
+```js
+import React, { Fragment, useContext } from 'react'
+import { Context } from '../../Context'
+
+const { activateAuth } = useContext(Context)
+```
+
+De esta forma, nuestro código queda mucho más limpio y legible.
