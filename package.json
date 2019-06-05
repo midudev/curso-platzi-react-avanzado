@@ -31,10 +31,11 @@
     "webpack-dev-server": "^3.4.1"
   },
   "scripts": {
-    "build": "webpack -p",
+    "build": "webpack --mode production",
     "now-build": "npm run build",
     "lint": "standard",
     "dev": "webpack-dev-server --history-api-fallback",
+    "serve:dev": "webpack --mode development && npx serve dist -s",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
