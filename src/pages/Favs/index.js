@@ -7,3 +7,5 @@ export const Favs = ({ favs = [] }) => {
     <FavsWithQuery />
   </Layout>
 }
+
+export default Favs

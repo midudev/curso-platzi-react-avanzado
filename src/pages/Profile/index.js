@@ -9,3 +9,5 @@ export const Profile = () => {
     <Button onClick={removeAuth}>Cerrar sesión</Button>
   </Layout>
 }
+
+export default Profile
