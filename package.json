@@ -8,14 +8,18 @@
     "apollo-boost": "^0.4.0",
     "graphql": "^14.3.1",
     "graphql-tag": "^2.10.1",
+    "install": "^0.12.2",
     "intersection-observer": "^0.7.0",
+    "npm": "^6.9.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-apollo": "^2.5.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "webpack-pwa-manifest": "^4.0.0",
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
