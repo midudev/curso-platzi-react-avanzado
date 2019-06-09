@@ -6,7 +6,7 @@ Nos habla de offline, que arreglaremos más adelante. La redirección nos lo sol
 
 Vamos a instalarlo con:
 ```
-npm install webpack-pwa-manifest
+npm install webpack-pwa-manifest -D
 ```
 
 Ahora, nos faltaría configurarlo. Vamos al `webpack.config.js` e importamos el plugin:
@@ -48,7 +48,7 @@ Para ello, vamos al archivo `index.html` y usamos la etiqueta `noscript`. Esta e
 Ya sólo nos falta hacer que nuestra aplicación registre un service worker y pueda funcionar de forma offline. Para ello, vamos a usar otro plugin, esta vez uno de Google, llamado Workbox Webpack Plugin, que nos va a ayudar a crear un Service Worker para cachear las requests de nuestra app.
 
 ```
-npm install workbox-webpack-plugin
+npm install workbox-webpack-plugin -D
 ```
 
 Vamos al archivo `webpack.config.js` y lo vamos a añadir a la lista de plugins.
