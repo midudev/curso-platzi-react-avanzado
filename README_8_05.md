@@ -74,4 +74,23 @@ new WorkboxWebpackPlugin.GenerateSW({
 })
 ```
 
-Ahora, si te interesa el tema, en Platzi puedes encontrar un curso completo sobre cómo realizar PWAs con React
+Sólo nos falta añadir el uso de este `service-worker` en nuestra página `index.html`. Primero comprobamos si el navegador es compatible con los Service Workers y luego registraremos el service worker que hemos creado.
+
+```js en index.html
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+          console.log('SW registered: ', registration)
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError)
+    })
+  })
+}
+</script>
+```
+
+Podemos volver a servir la página para ver cómo nos está quedando la puntuación de Lighthouse y ver cómo responde el Service Worker.
+
+Ahora, si te interesa el tema, en Platzi puedes encontrar un curso completo sobre cómo realizar PWAs con React de forma mucho más completa.
