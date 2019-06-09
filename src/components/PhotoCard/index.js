@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from '@reach/router'
+import PropTypes from 'prop-types'
 
 import { Article, Img, ImgWrapper } from './styles'
 
@@ -37,4 +38,21 @@ export const PhotoCard = ({ id = 0, liked, likes = 0, src = DEFAULT_IMAGE }) => 
       }
     </Article>
   )
+}
+
+PhotoCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  src: PropTypes.string.isRequired,
+  likes: function (props, propName, componentName) {
+    const propValue = props[propName]
+
+    if (propValue === undefined) {
+      return new Error(`${componentName} - ${propName} value MUST be defined`)
+    }
+
+    if (propValue < 0) {
+      return new Error(`${componentName} - ${propName} value MUST be positive`)
+    }
+  }
 }
