@@ -9,7 +9,7 @@ Creamos el archivo `index.js` que tendrá nuestro componente:
 ```js
 import React from 'react'
 
-const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_cats.jpg'
+const DEFAULT_IMAGE = 'https://i.imgur.com/dJa0Hpl.jpg'
 
 export const Category = ({ path, cover = DEFAULT_IMAGE, emoji = '❓' }) => (
   <a href={path}>
