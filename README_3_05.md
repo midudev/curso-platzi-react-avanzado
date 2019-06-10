@@ -3,7 +3,7 @@ Enseñamos el problema que las imágenes se muestran de golpe.
 Añadimos en el `styles.js` de `PhotoCard` una forma de mostrar gradualmente la imagen.
 
 ```js
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const fadeInKeyFrames = keyframes`
   from {
@@ -31,6 +31,8 @@ export const Img = styled.img`
 Enseñamos el efecto.
 
 Creamos la función para mostrar que puede ser totalmente reutilizable.
+
+Importamos el paquete `css`. 
 
 ```js
 const fadeIn = ({ time = '1s', type = 'ease' } = {}) =>
