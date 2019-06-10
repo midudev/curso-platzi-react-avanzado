@@ -1,6 +1,6 @@
 Primero revisamos el diseño que ya hemos creado. Identificamos los componentes que queremos crear en la home.
 
-Primero, vamos a separar el punto de entrada de nuestra aplicación de forma que lo que renderizaremos no será el <h1> si no el componente App. Creamos el archivo App.js y este componente lo dejaremos en la raíz de src y será donde empezaremos a usar los componentes de React que vamos a ir creando para crear la página de inicio de nuestra app.
+Primero, vamos a separar el punto de entrada de nuestra aplicación de forma que lo que renderizaremos no será el `<h1>` si no el componente App. Creamos el archivo App.js y este componente lo dejaremos en la raíz de src y será donde empezaremos a usar los componentes de React que vamos a ir creando para crear la página de inicio de nuestra app.
 
 Ahora, creamos la carpeta /components. El primero que haremos es el Category.
 
