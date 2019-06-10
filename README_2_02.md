@@ -14,6 +14,14 @@ Vamos a añadir un script en nuestro package.json para que siempre que queramos 
 
 Ahora, vamos a solucionarlos.
 
+```
+  "standard": {
+    "ignore": [
+      "/api/**"
+    ]
+  }
+ ```
+
 Esto está bien pero me gustaría contar con estos avisos directamente en el editor. Para ello, yo cuento con dos extensiones para Visual Studio Code: eslint y prettier. Sé que existe una extensión que directamente te permite usar Standard en el editor pero, en mi caso, me gusta que mi editor se pueda adaptar muy rápidamente a diferentes proyectos con configuraciones para el linter distintas.
 
 Para que funcionen como espero, lo primero que tengo que hacer es añadir en el package.json la referencia dónde se encuentra mi configuración con las reglas del linter, de forma que mi editor las pueda encontrar para aplicarlas. Para ello en el package.json añadimos la siguiente configuración:
