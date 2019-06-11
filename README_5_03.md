@@ -1,4 +1,4 @@
-Otra forma de utilizar react-apollo es usando el patrón de las render props. Las render props es un patrón que antes de que llegasen los hooks tomaron mucha relevancia ene los desarrollos con React y consiste en que la prop children de nuestro componente, en lugar de ser elementos, es una función que recibirá por parámetros diferente información.
+Otra forma de utilizar react-apollo es usando el patrón de las render props. Las render props es un patrón que antes de que llegasen los hooks tomaron mucha relevancia en los desarrollos con React y consiste en que la prop children de nuestro componente, en lugar de ser elemento, es una función que recibirá por parámetros diferente información.
 
 Para verlo más claro, vamos a crear uno para recupera la información de una foto en concreto. Primero, vamos a cambiar el enlace de las cards para que podamos
 
