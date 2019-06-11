@@ -105,6 +105,13 @@ import { fadeIn } from '../../styles/animations'
 
 Ahora sólo nos quedaría usar un efecto para cambiar el estado.
 
+```javascript
+${props => props.primary && css`
+    background: white;
+    color: palevioletred;
+  `}
+```
+
 En el efecto creamos una función onScroll que se ejecutará cuando hagamos scroll. Comprueba si es mayor a 200 y si el estado va a ser diferente, lo actualiza, para evitar re-renderizados no necesarios.
 
 Escuchamos el evento de `scroll` en el documento.
