@@ -45,7 +45,7 @@ Con esto ya preparado, ya podemos crear nuestra primera mutación. Creamos el ar
 
 ```js
 import React from 'react'
-import gql from 'graphql-tag'
+import { gql } from 'apollo-boost'
 import { Mutation } from 'react-apollo'
 ```
 
