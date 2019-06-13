@@ -79,7 +79,7 @@ Vamos a comprobar que todo funciona correctamente. Para ello, vamos a ir al punt
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-ReactDOM.render('Hola Platzi!', document.body)
+ReactDOM.render('Mi proyecto con React Avanzado', document.body)
 ```
 
 Vamos a abrir las herramientas de desarrollo. Nos dice que no es recomendable renderizar componentes directamente en el elemento <body> del componente, ya que suelen ser manipulados por scripts de terceros y puede traernos problemas en el futuro. Para solucionarlo, vamos a tener que generar nuestro propio index.html.
@@ -133,3 +133,7 @@ Ya ha terminado la instalación y ahora nos toca cambiar la configuración de we
 Si volvemos a levantar el servidor de desarrollo de Webpack, veremos que ahora sí ha compilado correctamente nuestra aplicación. Y accediendo a localhost:8080 veremos nuestra aplicación con el mensaje que esperamos.
 
 Con esto ya tendríamos el comienzo de nuestra aplicación de React.
+
+```
+Mi proyecto con React Avanzado!!!
+```
