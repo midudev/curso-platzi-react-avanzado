@@ -65,7 +65,7 @@ npm install webpack-dev-server --save-dev
 ```
 
 Añadimos el script `dev` en el package.json para inicializar nuestra aplicación en modo desarrollo:
-`"dev": "webpack-dev-server --mode development"`
+`"dev": "webpack-dev-server "`
 
 Nuestra aplicación la vamos a crear usando react, por lo que necesitamos instalar las dependencias necesarias.
 
