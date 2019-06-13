@@ -48,14 +48,14 @@ describe('Petgram', function () {
 ```
 
 ```js
-it('Could navigate to a category and see cards', function () {
+it('navigate to a category and see cards', function () {
   cy.visit('/pet/1')
   cy.get('article')
 })
 ```
 
 ```js
-it('Could navigate using the navbar to the home', function () {
+it('navigate using the navbar to the home', function () {
   cy.visit('/pet/1')
 
   cy.get('nav a').first().click()
