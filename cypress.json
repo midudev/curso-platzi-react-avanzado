@@ -1,1 +1,6 @@
-{}
+{
+  "baseUrl": "https://petgram.midudev.now.sh",
+  "chromeWebSecurity": false,
+  "viewportWidth": 500,
+  "viewportHeight": 800
+}
