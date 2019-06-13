@@ -59,7 +59,7 @@ it('navigate using the navbar to the home', function () {
   cy.visit('/pet/1')
 
   cy.get('nav a').first().click()
-  cy.url().should('be', '/')
+  cy.url().should('include', '/')
 })
 ```
 
