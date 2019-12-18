@@ -3,16 +3,23 @@
     "bugs": {
         "url": "https://github.com/sh4nn0nb1t/curso-platzi-react-avanzado/issues"
     },
+    "dependencies": {
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+    },
     "description": "Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)",
     "devDependencies": {
+        "@babel/core": "^7.7.5",
+        "@babel/preset-env": "^7.7.6",
+        "@babel/preset-react": "^7.7.4",
+        "babel-loader": "^8.0.6",
         "html-webpack-plugin": "^3.2.0",
         "webpack": "^4.41.3",
         "webpack-cli": "^3.3.10",
         "webpack-dev-server": "^3.9.0"
     },
     "homepage": "https://github.com/sh4nn0nb1t/curso-platzi-react-avanzado#readme",
-    "keywords": [
-    ],
+    "keywords": [],
     "license": "ISC",
     "main": "index.js",
     "name": "curso-platzi-react-avanzado",
