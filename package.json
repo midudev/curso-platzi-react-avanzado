@@ -1,0 +1,29 @@
+{
+    "author": "Emmanuelle Laguna (sh4nn0nb1t) <sh4nn0nb1t@gmail.com> (http://twitter.com/sh4nn0nb1t)",
+    "bugs": {
+        "url": "https://github.com/sh4nn0nb1t/curso-platzi-react-avanzado/issues"
+    },
+    "description": "Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)",
+    "devDependencies": {
+        "html-webpack-plugin": "^3.2.0",
+        "webpack": "^4.41.3",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
+    },
+    "homepage": "https://github.com/sh4nn0nb1t/curso-platzi-react-avanzado#readme",
+    "keywords": [
+    ],
+    "license": "ISC",
+    "main": "index.js",
+    "name": "curso-platzi-react-avanzado",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sh4nn0nb1t/curso-platzi-react-avanzado.git"
+    },
+    "scripts": {
+        "build": "webpack",
+        "dev": "webpack-dev-server",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "version": "1.0.0"
+}
