@@ -9,7 +9,33 @@
         "prettier"
     ],
     "rules": {
-        "prettier/prettier": "error",
+        "function-paren-newline": [
+            "error",
+            "consistent"
+        ],
+        "import/no-dynamic-require": 0,
+        "indent": [
+            "error",
+            4
+        ],
+        "jsx-a11y/href-no-hash": "off",
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "no-undef": "error",
+        "no-underscore-dangle": [
+            2,
+            {
+                "allow": [
+                    "_type"
+                ]
+            }
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
         "react/jsx-filename-extension": [
             1,
             {
@@ -18,6 +44,18 @@
                     ".jsx"
                 ]
             }
+        ],
+        "react/jsx-indent": [
+            2,
+            4
+        ],
+        "react/jsx-indent-props": [
+            2,
+            4
+        ],
+        "semi": [
+            "error",
+            "always"
         ]
     }
 }
