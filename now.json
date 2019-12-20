@@ -1,0 +1,24 @@
+{
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@now/static-build"
+        }
+    ],
+    "name": "petgram-sh4nn0nb1t",
+    "routes": [
+        {
+            "dest": "/$1.js",
+            "src": "(.*).js"
+        },
+        {
+            "dest": "/$1.json",
+            "src": "(.*).json"
+        },
+        {
+            "dest": "/index.html",
+            "src": "/.*"
+        }
+    ],
+    "version": 2
+}
