@@ -12,7 +12,7 @@ const Img = styled.img`
   text-decoration: none;
   box-shadow: 0px 10px 14px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
-  heigth: 75px;
+  height: 75px;
   overflow: hidden;
   object-fit: cover;
   width: 75px;
