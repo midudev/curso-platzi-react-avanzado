@@ -1,11 +1,20 @@
 import React from "react";
 
 import Card from "../card";
+import { photos } from "../../../../api/db.json";
 
 const List = () => (
     <ul>
         {
-            [1, 2, 3].map(index => <li key={index}><Card /></li>)
+            photos.map(photo => (
+                <li key={photo.id}>
+                    <Card
+                        id={photo.id}
+                        src={photo.src}
+                        likes={photo.likes}
+                    />
+                </li>
+            ))
         }
     </ul>
 );

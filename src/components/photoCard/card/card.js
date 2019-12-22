@@ -23,7 +23,7 @@ const Card = (props) => {
                 </ImageWrapper>
             </a>
             <Button type="button">
-                <FaRegHeart size="24" />{likes} likes.
+                <FaRegHeart size="16" />{likes}
             </Button>
         </Wrapper>
     );
