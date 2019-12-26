@@ -37,6 +37,7 @@ const Wrapper = styled.article`
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.25);
   margin-top: 16px;
   width: 100%;
+  min-height: 250px;
 `;
 
 const Button = styled.button`

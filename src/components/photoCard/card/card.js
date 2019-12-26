@@ -1,5 +1,6 @@
+/* global window, */
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 
 import {
@@ -15,16 +16,40 @@ const Card = (props) => {
         likes,
         src,
     } = props;
+    
+    const element = useRef(null);
+    const [ show, setShow ] = useState(false);
+    
+    useEffect(() => {
+        Promise.resolve(
+            typeof window.IntersectionObserver !== "undefined"
+                ? window.IntersectionObserver
+                : import("intersection-observer")
+        ).then(() => {
+            const observer = new window.IntersectionObserver((entries) => {
+                const { isIntersecting } = entries[0];
+                setShow(isIntersecting);
+            });
+            observer.observe(element.current);
+        });
+    }, [element]);
+    
     return (
-        <Wrapper>
-            <a href={`/detail/${id}`}>
-                <ImageWrapper>
-                    <Image src={src} alt={`Imagen número ${id}`} />
-                </ImageWrapper>
-            </a>
-            <Button type="button">
-                <FaRegHeart size="16" />{likes}
-            </Button>
+        <Wrapper ref={element}>
+            {
+                show && (
+                    <>
+                        <a href={`/detail/${id}`}>
+                            <ImageWrapper>
+                                <Image src={src} alt={`Imagen número ${id}`} />
+                            </ImageWrapper>
+                        </a>
+                        <Button type="button">
+                            <FaRegHeart size="16" />{likes}
+                        </Button>
+                    </>
+                )
+            }
         </Wrapper>
     );
 };
