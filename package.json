@@ -1,0 +1,28 @@
+{
+    "name": "the_instagram",
+    "version": "1.0.0",
+    "description": "Proyecto de aprendizaje de React Avanzado",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack-dev-server",
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Diegoalesco95/The_instagram.git"
+    },
+    "keywords": [],
+    "author": "Diego Osorio <Diegoalesco95@hotmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Diegoalesco95/The_instagram/issues"
+    },
+    "homepage": "https://github.com/Diegoalesco95/The_instagram#readme",
+    "devDependencies": {
+        "html-webpack-plugin": "^4.2.0",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
+    }
+}
