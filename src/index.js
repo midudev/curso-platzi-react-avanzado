@@ -1,4 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(<h1>Hola Platzi</h1>, document.getElementById("app"));
+ReactDOM.render(<h1>Hola Platzi</h1>, document.getElementById('app'))
