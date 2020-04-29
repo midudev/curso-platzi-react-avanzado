@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImgWrapper, Img, Button } from './styles'
+import { ImgWrapper, Img, Button, Article } from './styles'
 import { MdFavoriteBorder } from 'react-icons/md'
 
 const DEFAULT_IMAGE =
@@ -7,7 +7,7 @@ const DEFAULT_IMAGE =
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   return (
-    <article>
+    <Article>
       <a href={`/detail/${id}`}>
         <ImgWrapper>
           <Img src={src} alt='image title' />
@@ -16,6 +16,6 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
       <Button>
         <MdFavoriteBorder size='32px' /> {likes} likes!
       </Button>
-    </article>
+    </Article>
   )
 }

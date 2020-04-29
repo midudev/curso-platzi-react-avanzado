@@ -29,3 +29,6 @@ export const Button = styled.button`
     margin-right: 4px;
   }
 `
+export const Article = styled.article`
+  margin-bottom: 20px;
+`
