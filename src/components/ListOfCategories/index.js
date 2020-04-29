@@ -2,28 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Category } from '../Category'
 import { CategorySkeleton } from '../CategorySkeleton'
 
-import { List, Item } from './styles'
+import { useFetchData } from '../../hooks/useFetchData'
 
-function useCategoriesData () {
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      setLoading(true)
-      const response = await window.fetch('https://the-petgram-server.now.sh/categories')
-      const data = await response.json()
-      setCategories(data)
-      setLoading(false)
-    }
-    fetchCategories()
-  }, [])
-
-  return { categories, loading }
-}
+import { List, Item, Error } from './styles'
 
 export const ListOfCategories = () => {
-  const { categories, loading } = useCategoriesData()
+  const [categories, loading, error] = useFetchData('https:/the-petgram-server.now.sh/categories')
   const [showFixed, setShowFixed] = useState(false)
 
   useEffect(() => {
@@ -38,17 +22,23 @@ export const ListOfCategories = () => {
 
   const renderList = (fixed) => (
     <List fixed={fixed}>
-      {loading
-        ? [1, 2, 3, 4, 5, 6].map((item) => (
+      {error ? (
+        <Error>
+          <p>{error}</p>
+        </Error>
+      ) : loading ? (
+        [1, 2, 3, 4, 5, 6].map((item) => (
           <Item key={item}>
             <CategorySkeleton />
           </Item>
         ))
-        : categories.map((category) => (
+      ) : (
+        categories.map((category) => (
           <Item key={category.id}>
             <Category {...category} />
           </Item>
-        ))}
+        ))
+      )}
     </List>
   )
 
