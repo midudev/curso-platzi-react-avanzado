@@ -4,7 +4,8 @@ import { CategorySkeleton } from '../CategorySkeleton'
 
 import { useFetchData } from '../../hooks/useFetchData'
 
-import { List, Item, Error } from './styles'
+import { List, Item } from './styles'
+import { Error } from '../../styles/Error'
 
 export const ListOfCategories = () => {
   const [categories, loading, error] = useFetchData('https:/the-petgram-server.now.sh/categories')

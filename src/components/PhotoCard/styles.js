@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fadeIn } from '../../styles/animation'
+import { fadeIn } from '../../styles/Animation'
 
 export const ImgWrapper = styled.div`
   display: block;
