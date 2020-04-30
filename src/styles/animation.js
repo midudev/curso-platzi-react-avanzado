@@ -10,6 +10,17 @@ const fadeInKeyframes = keyframes`
     opacity: 1
   }
 `
+export const loadingAnimation = keyframes`
+  to{
+    stroke: #e7008a;
+    stroke-dasharray: 1;
+  }
+  from{
+    stroke:#4658ac;
+    transform:rotate(230deg);
+    stroke-dasharray: 8;
+  }
+`
 
 export const fadeIn = ({ time = '1s', type = 'ease' } = {}) =>
   css`
