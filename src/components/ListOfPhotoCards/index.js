@@ -1,12 +1,33 @@
 import React from 'react'
 import { PhotoCard } from '../PhotoCard'
+import { PhotoCardSkeleton } from '../PhotoCardSkeleton'
+import { Error } from '../../styles/Error'
 
-export const ListOfPhotoCards = () => {
+export const ListOfPhotoCardsComponent = ({ loading, error, data: { photos = [1, 2, 3, 4] } }) => {
+  console.log(photos)
+  if (loading) return <PhotoCardSkeleton />
+  if (error) {
+    return (
+      <>
+        <PhotoCardSkeleton />
+        <Error>
+          <p>Upps! parece que se presentó un problema.</p>
+          <p>Intenta nuevamente mas tarde.</p>
+        </Error>
+      </>
+    )
+  }
   return (
     <ul>
-      {[1, 2, 3, 4, 5, 6].map((id) => (
-        <PhotoCard key={id} id={id} />
+      {photos.map((photo) => (
+        <PhotoCard key={photo.id} {...photo} />
       ))}
     </ul>
   )
+}
+
+ListOfPhotoCardsComponent.defaultProps = {
+  data: {},
+  loading: false,
+  error: null
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { loadingAnimation } from '../../styles/animation'
+import { loadingAnimation } from '../../styles/Animation'
 
 export const Anchor = styled.a`
   display: flex;
