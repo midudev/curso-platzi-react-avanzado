@@ -1,4 +1,4 @@
-import { graphql } from 'react-apollo'
+import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
 
 const GET_PHOTOS = gql`
@@ -13,5 +13,7 @@ const GET_PHOTOS = gql`
     }
   }
 `
-
-export const withPhotos = graphql(GET_PHOTOS)
+export const useGetPhotos = (categoryId) => {
+  const { loading, data, error } = useQuery(GET_PHOTOS, { variables: { categoryId } })
+  return { loading, data, error }
+}

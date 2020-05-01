@@ -1,24 +1,17 @@
 import React from 'react'
-import { PhotoCard } from '../components/PhotoCard'
 import { PhotoCardSkeleton } from '../components/PhotoCardSkeleton'
+import { PhotoCard } from '../components/PhotoCard'
+import { useGetSinglePhoto } from '../hooks/useGetSinglePhoto'
 import { Error } from '../styles/Error'
 
-import { gql } from 'apollo-boost'
-import { Query } from 'react-apollo'
+export const PhotoCardWithQuery = ({ detailId }) => {
+  console.log(detailId)
 
-const GET_SINGLE_PHOTO = gql`
-  query getSinglePhoto($id: ID!) {
-    photo(id: $id) {
-      id
-      categoryId
-      src
-      likes
-      userId
-      liked
-    }
-  }
-`
-const renderProp = ({ loading, error, data }) => {
+  const { data: { photo = [] } = {}, loading, error } = useGetSinglePhoto(detailId)
+  console.log(photo)
+  console.log(loading)
+  console.log(photo)
+
   if (loading) return <PhotoCardSkeleton />
   if (error) {
     return (
@@ -31,12 +24,5 @@ const renderProp = ({ loading, error, data }) => {
       </>
     )
   }
-  const { photo = {} } = data
   return <PhotoCard {...photo} />
 }
-
-export const PhotoCardWithQuery = ({ id }) => (
-  <Query query={GET_SINGLE_PHOTO} variables={{ id }}>
-    {renderProp}
-  </Query>
-)

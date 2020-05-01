@@ -14,11 +14,11 @@ export const App = () => {
       <GlobalStyle />
       <Logo />
       {detailId ? (
-        <PhotoCardWithQuery id={detailId} />
+        <PhotoCardWithQuery detailId={detailId} />
       ) : (
         <>
           <ListOfCategories />
-          <ListOfPhotoCards categoryId={3} />
+          <ListOfPhotoCards categoryId={2} />
         </>
       )}
     </>
