@@ -4,7 +4,6 @@ import { PhotoCardSkeleton } from '../PhotoCardSkeleton'
 import { Error } from '../../styles/Error'
 
 export const ListOfPhotoCardsComponent = ({ loading, error, data: { photos = [1, 2, 3, 4] } }) => {
-  console.log(photos)
   if (loading) return <PhotoCardSkeleton />
   if (error) {
     return (

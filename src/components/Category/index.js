@@ -1,10 +1,10 @@
 import React from 'react'
-import { Anchor, Image, Circle } from './styles'
+import { Link, Image, Circle } from './styles'
 
 const DEFAULT_IMAGE = 'https://i.imgur.com/dJa0Hpl.jpg'
 
-export const Category = ({ cover = DEFAULT_IMAGE, path, emoji = '?' }) => (
-  <Anchor href={path}>
+export const Category = ({ cover = DEFAULT_IMAGE, path = '#', emoji = '?' }) => (
+  <Link to={path}>
     <Circle>
       <Image src={cover} alt='image' />
       <svg viewBox='0 0 100 100'>
@@ -12,5 +12,5 @@ export const Category = ({ cover = DEFAULT_IMAGE, path, emoji = '?' }) => (
       </svg>
     </Circle>
     {emoji}
-  </Anchor>
+  </Link>
 )

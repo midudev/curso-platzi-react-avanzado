@@ -5,13 +5,7 @@ import { useGetSinglePhoto } from '../hooks/useGetSinglePhoto'
 import { Error } from '../styles/Error'
 
 export const PhotoCardWithQuery = ({ detailId }) => {
-  console.log(detailId)
-
   const { data: { photo = [] } = {}, loading, error } = useGetSinglePhoto(detailId)
-  console.log(photo)
-  console.log(loading)
-  console.log(photo)
-
   if (loading) return <PhotoCardSkeleton />
   if (error) {
     return (
