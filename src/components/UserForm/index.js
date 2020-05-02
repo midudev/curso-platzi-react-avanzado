@@ -1,15 +1,23 @@
 import React from 'react'
 import { useInputValue } from '../../hooks/useInputValue'
+import { Container, Paragraph, Form, Input, Title, Button, Link } from './styles'
 
-export const UserForm = ({ onSubmit }) => {
+export const UserForm = ({ onSubmit, title, message, redirect }) => {
   const email = useInputValue('')
   const password = useInputValue('')
 
   return (
-    <form onSubmit={onSubmit}>
-      <input placeholder='Email' {...email} />
-      <input placeholder='Password' {...password} />
-      <button>Iniciar Sesión</button>
-    </form>
+    <Container>
+      <Title>{title}</Title>
+      <Paragraph>{title} con tu cuenta de Petsgram y descubre que los animales tambien tienen estilo.</Paragraph>
+      <Form onSubmit={onSubmit}>
+        <Input placeholder='Email' {...email} />
+        <Input placeholder='Password' {...password} />
+        <Button>{title}</Button>
+        <Paragraph>
+          {message}, <Link to='#'>{redirect}</Link>
+        </Paragraph>
+      </Form>
+    </Container>
   )
 }

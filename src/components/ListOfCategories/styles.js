@@ -8,20 +8,20 @@ export const List = styled.ul`
   height: 120px;
   margin-bottom: 25px;
   align-items: center;
-  border: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
   ${(props) =>
     props.fixed &&
     css`
       background: #fff;
-      border-radius: 60px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      left: 0;
-      margin: 0 auto;
       max-width: 400px;
       padding: 5px;
+      margin: 0 auto;
+      border-radius: 60px;
       position: fixed;
-      right: 0;
       top: -20px;
+      right: 0;
+      left: 0;
       transform: scale(0.7);
       z-index: 1;
       ${fadeIn({ time: '0.75s' })}
