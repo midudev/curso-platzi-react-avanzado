@@ -3,6 +3,7 @@ import Context from '../Context'
 import { UserForm } from '../components/UserForm'
 import { IconPets } from '../components/IconPets'
 import { RegisterMutation } from '../container/RegisterMutation'
+import { LoginMutation } from '../container/LoginMutation'
 
 export const NotRegisteredUser = () => (
   <Context.Consumer>
@@ -30,7 +31,26 @@ export const NotRegisteredUser = () => (
               )
             }}
           </RegisterMutation>
-          <UserForm title='Inicia sesión' message='¿Aun no tienes una cuenta?' redirect='Registrarse' onSubmit={activateAuth} />
+          <LoginMutation>
+            {(login, { data, loading, error }) => {
+              const onSubmit = ({ email, password }) => {
+                const input = { email, password }
+                const variables = { input }
+                login({ variables }).then(activateAuth)
+              }
+              const errorMsg = error && 'Al parecer el usuario/contraseña no es correcto. '
+              return (
+                <UserForm
+                  disabled={loading}
+                  error={errorMsg}
+                  title='Inicia sesión'
+                  message='¿Aun no tienes una cuenta?'
+                  redirect='Registrarse'
+                  onSubmit={onSubmit}
+                />
+              )
+            }}
+          </LoginMutation>
         </>
       )
     }}
