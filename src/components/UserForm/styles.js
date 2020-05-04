@@ -31,6 +31,10 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+
+  &[disabled] {
+    opacity: 0.4;
+  }
 `
 
 export const Button = styled.button`
@@ -41,6 +45,11 @@ export const Button = styled.button`
   display: block;
   width: 100%;
   text-align: center;
+  cursor: pointer;
+  &[disabled] {
+    cursor: wait;
+    opacity: 0.4;
+  }
 `
 export const Title = styled.h2`
   font: 16px;
