@@ -7,7 +7,7 @@ export const ListOfFavs = ({ favs, loading, error }) => {
   if (!favs.length) {
     return (
       <>
-        <Paragraph>No tiene favoritos</Paragraph>
+        <Paragraph>Tu lista de favoritos esta vacia, ve a inicio y agrega tus favoritos</Paragraph>
       </>
     )
   }

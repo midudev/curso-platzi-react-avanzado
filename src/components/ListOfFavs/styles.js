@@ -20,7 +20,15 @@ export const Grid = styled.div`
   padding-top: 32px;
 `
 export const Paragraph = styled.p`
-  padding-left: 32px;
+  margin: 40px auto;
+  height: 50px;
+  width: 80%;
+  color: #fff;
+  font-size: 0.9em;
+  text-align: center;
+  background: #ef2488;
+  border: 1px solid #ef2488;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 `
 
 export const Image = styled.img`

@@ -1,5 +1,11 @@
 import React from 'react'
+import { SubmitButtom } from '../components/SubmitButtom'
 
 export const User = () => {
-  return <div>This is User</div>
+  return (
+    <>
+      <h1>Mi Perfil</h1>
+      <SubmitButtom />
+    </>
+  )
 }
