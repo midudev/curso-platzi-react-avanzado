@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Svg = styled.svg`
-  width: 220px;
+  width: 100%;
   height: 100px;
-  margin-left: -10px;
+  border-bottom: 1px solid #e0e0e0;
 `

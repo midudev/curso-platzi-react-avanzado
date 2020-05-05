@@ -4,6 +4,8 @@ import { fadeIn } from './Animation'
 export const Error = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: center;
+  color: #fff;
   background-color: #f0134d;
   box-shadow: 5px 5px 6px 0px rgba(0, 0, 0, 0.4);
   width: 90%;
