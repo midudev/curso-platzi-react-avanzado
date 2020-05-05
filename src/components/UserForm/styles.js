@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link as LinkRouter } from '@reach/router'
 
 export const Container = styled.div`
   display: flex;
@@ -57,7 +56,7 @@ export const Title = styled.h2`
   padding: 8px 0;
   text-align: center;
 `
-export const Link = styled(LinkRouter)`
+export const ButtomLink = styled.button`
   color: #2492f4;
-  text-decoration: none;
+  cursor: pointer;
 `

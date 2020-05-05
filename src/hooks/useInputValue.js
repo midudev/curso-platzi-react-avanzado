@@ -1,8 +1,16 @@
 import { useState } from 'react'
+import { useStateValue } from '../Context'
 
-export const useInputValue = (initialValue) => {
+export const useInputValue = (initialValue, type) => {
   const [value, setValue] = useState(initialValue)
-  const onChange = (e) => setValue(e.target.value)
-
+  const [, dispatch] = useStateValue()
+  const onChange = (e) => {
+    const key = e.target.value
+    setValue(key)
+    dispatch({
+      type,
+      payload: key
+    })
+  }
   return { value, onChange }
 }

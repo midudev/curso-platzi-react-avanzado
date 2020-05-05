@@ -1,61 +1,59 @@
-import React, { useContext } from 'react'
-import { Context } from '../Context'
+import React from 'react'
+import { useStateValue } from '../Context'
 import { UserForm } from '../components/UserForm'
 import { IconPets } from '../components/IconPets'
-import { RegisterMutation } from '../container/RegisterMutation'
-import { LoginMutation } from '../container/LoginMutation'
+import { useRegisterMutation } from '../hooks/useRegisterMutation'
+import { useLoginMutation } from '../hooks/useLoginMutation'
+
+import { Paragraph, ButtomLink } from '../components/UserForm/styles'
+
+const useMutationValue = (action, loading, error, type, errorMsg) => ({
+  action,
+  loading,
+  error,
+  type,
+  errorMsg
+})
 
 export const NotRegisteredUser = () => {
-  const { activateAuth } = useContext(Context)
+  const [{ sectionLogin, email, password }, dispatch] = useStateValue()
+  const { register, loading, error } = useRegisterMutation(email, password)
+  const { login, loadingLogin, errorLogin } = useLoginMutation(email, password)
+
+  const REGISTER = useMutationValue(register, loading, error, 'sectionLogin', 'El usuario ya existe o hay algun problema')
+  const LOGIN = useMutationValue(login, loadingLogin, errorLogin, undefined, 'Al parecer el usuario/contraseña no es correcto.')
+
+  const handleOnCLickValue = (boolean) => {
+    dispatch({
+      type: 'sectionLogin',
+      payload: boolean
+    })
+  }
+
   return (
     <>
       <IconPets />
-      <RegisterMutation>
-        {(register, { data, loading, error }) => {
-          const onSubmit = ({ email, password }) => {
-            const input = { email, password }
-            const variables = { input }
-            register({ variables }).then(({ data }) => {
-              const { signup } = data
-              activateAuth(signup)
-            })
-          }
-          const errorMsg = error && 'El usuario ya existe o hay algun problema'
-          return (
-            <UserForm
-              disabled={loading}
-              error={errorMsg}
-              title='Registrate'
-              message='¿Ya tienes una cuenta?'
-              redirect='Inicia sesión'
-              onSubmit={onSubmit}
-            />
-          )
-        }}
-      </RegisterMutation>
-      <LoginMutation>
-        {(login, { data, loading, error }) => {
-          const onSubmit = ({ email, password }) => {
-            const input = { email, password }
-            const variables = { input }
-            login({ variables }).then(({ data }) => {
-              const { login } = data
-              activateAuth(login)
-            })
-          }
-          const errorMsg = error && 'Al parecer el usuario/contraseña no es correcto. '
-          return (
-            <UserForm
-              disabled={loading}
-              error={errorMsg}
-              title='Inicia sesión'
-              message='¿Aun no tienes una cuenta?'
-              redirect='Registrarse'
-              onSubmit={onSubmit}
-            />
-          )
-        }}
-      </LoginMutation>
+      {sectionLogin ? (
+        <>
+          <UserForm title='Inicia sesión' {...LOGIN} />
+          <Paragraph>
+            ¿Aun no tienes una cuenta?,{' '}
+            <ButtomLink type='submit' onClick={() => handleOnCLickValue(false)}>
+              Registrate
+            </ButtomLink>
+          </Paragraph>
+        </>
+      ) : (
+        <>
+          <UserForm title='Registrate' {...REGISTER} />
+          <Paragraph>
+            ¿Ya tienes una cuenta?,{' '}
+            <ButtomLink type='submit' onClick={() => handleOnCLickValue(true)}>
+              Inicia sesión
+            </ButtomLink>
+          </Paragraph>
+        </>
+      )}
     </>
   )
 }

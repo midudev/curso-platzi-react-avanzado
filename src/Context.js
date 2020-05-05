@@ -1,22 +1,9 @@
-import React, { createContext, useState } from 'react'
-export const Context = createContext()
+import React, { createContext, useContext, useReducer } from 'react'
 
-const Provider = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(() => {
-    return window.sessionStorage.getItem('token')
-  })
+export const StateContext = createContext()
 
-  const value = {
-    isAuth,
-    activateAuth: (token) => {
-      setIsAuth(true)
-      window.sessionStorage.setItem('token', token)
-    }
-  }
-  return <Context.Provider value={value}>{children}</Context.Provider>
-}
+export const StateProvider = ({ reducer, initialState, children }) => (
+  <StateContext.Provider value={useReducer(reducer, initialState)}>{children}</StateContext.Provider>
+)
 
-export default {
-  Provider,
-  Consumer: Context.Consumer
-}
+export const useStateValue = () => useContext(StateContext)

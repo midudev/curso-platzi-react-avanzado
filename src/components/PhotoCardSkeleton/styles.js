@@ -8,7 +8,7 @@ export const ContainerPhotoCardSkeleton = styled.div`
 `
 
 export const CardImage = styled.div`
-  width: 95%;
+  width: 100%;
   height: 250px;
   ${(props) => css`
     ${skeletonStyle(props.light)}
@@ -18,7 +18,7 @@ export const CardImage = styled.div`
 export const CardLikes = styled.div`
   width: 40px;
   height: 25px;
-  margin: 10px 90% 10px 10%;
+  margin: 10px 95% 10px 5%;
   ${(props) => css`
     ${skeletonStyle(props.light)}
   `}
