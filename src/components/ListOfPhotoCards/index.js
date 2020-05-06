@@ -4,7 +4,22 @@ import { PhotoCardSkeleton } from '../PhotoCardSkeleton'
 import { Error } from '../../styles/Error'
 import PropTypes from 'prop-types'
 
-export const ListOfPhotoCardsComponent = ({ loading, error, data: { photos = [1, 2, 3, 4] } }) => {
+export const ListOfPhotoCardsComponent = ({
+  loading,
+  error,
+  data: {
+    photos = [
+      {
+        id: '0',
+        categoryId: 2,
+        src: 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png',
+        likes: 7,
+        userId: '100',
+        liked: false
+      }
+    ]
+  }
+}) => {
   if (loading) return <PhotoCardSkeleton />
   if (error) {
     return (
@@ -35,16 +50,14 @@ ListOfPhotoCardsComponent.defaultProps = {
 ListOfPhotoCardsComponent.propTypes = {
   data: PropTypes.objectOf(
     PropTypes.arrayOf(
-      PropTypes.objectOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          categoryId: PropTypes.number.isRequired,
-          src: PropTypes.string.isRequired,
-          likes: PropTypes.number.isRequired,
-          userId: PropTypes.string,
-          liked: PropTypes.bool.isRequired
-        })
-      )
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        categoryId: PropTypes.number.isRequired,
+        src: PropTypes.string.isRequired,
+        likes: PropTypes.number.isRequired,
+        userId: PropTypes.string,
+        liked: PropTypes.bool.isRequired
+      })
     )
   ),
   loading: PropTypes.bool,
