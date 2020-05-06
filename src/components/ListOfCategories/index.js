@@ -7,7 +7,7 @@ import { useFetchData } from '../../hooks/useFetchData'
 import { List, Item } from './styles'
 import { Error } from '../../styles/Error'
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const [categories, loading, error] = useFetchData('https:/the-petgram-server.now.sh/categories')
   const [showFixed, setShowFixed] = useState(false)
 
@@ -50,3 +50,5 @@ export const ListOfCategories = () => {
     </>
   )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent)
