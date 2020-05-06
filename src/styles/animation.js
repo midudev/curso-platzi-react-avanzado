@@ -1,5 +1,7 @@
 import { css, keyframes } from 'styled-components'
 
+// Animations for components
+
 const fadeInKeyframes = keyframes`
   from {
     filter: blur(5px);
@@ -25,4 +27,25 @@ export const loadingAnimation = keyframes`
 export const fadeIn = ({ time = '1s', type = 'ease' } = {}) =>
   css`
     animation: ${time} ${fadeInKeyframes} ${type};
+  `
+
+// Animation for pages
+
+const LdsGrids = keyframes`
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+`
+export const loadingPage = ({ time = '1.2s', type = 'linear', iteration = 'infinite' } = {}) =>
+  css`
+    animation: ${time} ${LdsGrids} ${type} ${iteration};
+  `
+export const delay = ({ timeDelay } = {}) =>
+  css`
+    animation-delay: ${timeDelay};
   `

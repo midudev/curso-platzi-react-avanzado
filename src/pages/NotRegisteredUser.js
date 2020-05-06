@@ -15,7 +15,7 @@ const useMutationValue = (action, loading, error, type, errorMsg) => ({
   errorMsg
 })
 
-export const NotRegisteredUser = () => {
+export default () => {
   const [{ sectionLogin, email, password }, dispatch] = useStateValue()
   const { register, loading, error } = useRegisterMutation(email, password)
   const { login, loadingLogin, errorLogin } = useLoginMutation(email, password)

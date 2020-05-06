@@ -2,7 +2,7 @@ import React from 'react'
 import { SubmitButtom } from '../components/SubmitButtom'
 import { HelmetLayout } from '../components/Helmet'
 
-export const User = () => {
+export default () => {
   return (
     <>
       <HelmetLayout title='Mi Perfil' />

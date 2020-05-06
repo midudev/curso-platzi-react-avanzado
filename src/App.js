@@ -1,20 +1,20 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Router, Redirect } from '@reach/router'
-
-import { Layout } from './components/Layout'
-import { Home } from './pages/Home'
-import { Detail } from './pages/Detail'
-import { Favs } from './pages/Favs'
-import { User } from './pages/User'
-import { NotFound } from './pages/NotFound'
-import { NotRegisteredUser } from './pages/NotRegisteredUser'
-
 import { useStateValue } from './Context'
+import { Layout } from './components/Layout'
+import { LoadingPages } from './components/Loader'
+
+const Home = lazy(() => import('./pages/Home'))
+const Detail = lazy(() => import('./pages/Detail'))
+const Favs = lazy(() => import('./pages/Favs'))
+const User = lazy(() => import('./pages/User'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const NotRegisteredUser = lazy(() => import('./pages/NotRegisteredUser'))
 
 export const App = () => {
   const [{ isAuth }] = useStateValue()
   return (
-    <>
+    <Suspense fallback={<LoadingPages />}>
       <Layout>
         <Router>
           <NotFound default />
@@ -29,6 +29,6 @@ export const App = () => {
           <User path='/user' />
         </Router>
       </Layout>
-    </>
+    </Suspense>
   )
 }
