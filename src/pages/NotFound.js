@@ -1,8 +1,7 @@
 import React from 'react'
-import { Title, Text } from '../styles/custom/styles'
+import { HelmetLayout } from '../components/Helmet'
 export const NotFound = () => (
   <>
-    <Title>Uuups, parece que estas perdido porque esta página no existe ☹</Title>
-    <Text>Regresa al home para seguir disfrutando de una buena experiencia</Text>
+    <HelmetLayout title='404 - Esta página no existe' subtitle='Regresa al home para seguir disfrutando de una buena experiencia' />
   </>
 )

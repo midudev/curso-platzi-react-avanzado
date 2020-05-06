@@ -1,11 +1,11 @@
 import React from 'react'
 import { ListFavorites } from '../container/ListOfFavorites'
-import { Header } from '../styles/custom/styles'
+import { HelmetLayout } from '../components/Helmet'
 
 export const Favs = () => {
   return (
     <>
-      <Header>Favoritos</Header>
+      <HelmetLayout title='Tus Favoritos' subtitle='Aqui puedes encontrar tus favoritos' />
       <ListFavorites />
     </>
   )
