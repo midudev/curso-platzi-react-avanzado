@@ -3,6 +3,7 @@ import { useStateValue } from '../../Context'
 import { useInputValue } from '../../hooks/useInputValue'
 import { Container, Paragraph, Form, Input, Title, Button } from './styles'
 import { Error } from '../../styles/Error'
+import PropTypes from 'prop-types'
 
 export const UserForm = ({ action, loading, error, type, title, errorMsg }) => {
   const [, dispatch] = useStateValue()
@@ -50,4 +51,13 @@ export const UserForm = ({ action, loading, error, type, title, errorMsg }) => {
       {error && <Error>{errorMsg}</Error>}
     </Container>
   )
+}
+
+UserForm.propTypes = {
+  action: PropTypes.func,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
+  type: PropTypes.string,
+  title: PropTypes.string,
+  errorMsg: PropTypes.string
 }

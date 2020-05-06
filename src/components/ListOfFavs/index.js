@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Image, Link, Paragraph } from './styles'
 import { FavsSkeleton } from '../FavsSkeleton'
 import { Error } from '../../styles/Error'
+import PropTypes from 'prop-types'
 
 export const ListOfFavs = ({ favs, loading, error }) => {
   if (!favs.length) {
@@ -38,6 +39,17 @@ export const ListOfFavs = ({ favs, loading, error }) => {
 }
 
 ListOfFavs.defaultProps = {
-  favs: [{ id: '1' }],
+  favs: [{ id: '1', src: '' }],
   loading: false
+}
+
+ListOfFavs.propTypes = {
+  favs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired
+    })
+  ),
+  loading: PropTypes.bool,
+  error: PropTypes.any
 }
