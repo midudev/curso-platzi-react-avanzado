@@ -4,6 +4,7 @@ import { useStateValue } from './Context'
 import { Layout } from './components/Layout'
 import { LoadingPages } from './components/Loader'
 
+// const LoadingPages = lazy(() => import('./components/Loader'))
 const Home = lazy(() => import('./pages/Home'))
 const Detail = lazy(() => import('./pages/Detail'))
 const Favs = lazy(() => import('./pages/Favs'))

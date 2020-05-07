@@ -20,7 +20,7 @@ export const HelmetLayout = ({ children, title, subtitle }) => {
 }
 
 HelmetLayout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string
 }

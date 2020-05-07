@@ -12,7 +12,7 @@ export const ListOfPhotoCardsComponent = ({
       {
         id: '0',
         categoryId: 2,
-        src: 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png',
+        src: '',
         likes: 7,
         userId: '100',
         liked: false
