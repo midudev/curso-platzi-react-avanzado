@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "webpack serve --config ./webpack.config.js",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --config ./webpack.config.js --mode development",
     "lint": "semistandard",
     "lint-fix": "semistandard --fix",
     "vercel-build": "npm run build"
@@ -36,7 +36,8 @@
   },
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
   },
   "semistandard": {
     "ignore": [
