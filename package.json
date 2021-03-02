@@ -1,0 +1,28 @@
+{
+  "name": "curso-platzi-react-avanzado",
+  "version": "1.0.0",
+  "description": "Proyecto curso de platzi realizado por mi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack serve --config ./webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateombar/curso-platzi-react-avanzado.git"
+  },
+  "keywords": [],
+  "author": "Mateo Montanez Baron <mateomontabaron@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mateombar/curso-platzi-react-avanzado/issues"
+  },
+  "homepage": "https://github.com/mateombar/curso-platzi-react-avanzado#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.2.0",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
