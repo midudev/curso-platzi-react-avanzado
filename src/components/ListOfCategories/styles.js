@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {fadeInDown, fadeOutUp} from '../../styles/animation';
 export const List = styled.ul`
     display:flex;
     overflow: auto;
     width: 100%;
     padding: 10px 5px;
-    &.fixed {
+    ${props => props.fixed && css`
       background: #fff;
       border-radius: 60px;
       box-shadow: 0 0 20px rgba(0,0,0,.3);
@@ -19,7 +19,7 @@ export const List = styled.ul`
       transform: scale(.5);
       z-index: 1;
       ${fadeInDown()};
-    }
+    `}
 
   @media only screen and (max-width: 1080px){
     &::-webkit-scrollbar {
