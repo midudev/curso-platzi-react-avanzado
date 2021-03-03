@@ -20,10 +20,18 @@ export const Img = styled.img`
 `
 
 export const Button = styled.button`
-    padding-top: 8px;
+    padding: 2px 0 20px 15px;
     display: flex;
     align-items: center;
-    & svg {
-        margin-right: 4px;
+    & div {
+        border-radius: 50%;
+        border: 2px solid #ffbd00;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        margin-right: 8px;
+        margin-top: -30px;
+        position: relative;
+        background: #fff;
     }
 `

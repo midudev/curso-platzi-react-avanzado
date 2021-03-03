@@ -9,7 +9,7 @@ export const Anchor = styled.a`
 `
 
 export const Image = styled.img`
-    border: 1px solid #ddd;
+    border: 2px solid #eee;
     box-shadow: 0px 10px 14px rgba(0,0,0,.2);
     border-radius: 50%;
     overflow: hidden;

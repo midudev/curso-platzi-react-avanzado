@@ -13,6 +13,10 @@ export const List = styled.ul`
   }
 `
 
+export const Rapper = styled.div`
+    padding: 0 8px;
+`
+
 export const Item = styled.li`
     padding: 0 8px;
     list-style:none
