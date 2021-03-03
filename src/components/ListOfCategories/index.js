@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Category } from '../Category/index';
 import { Loader } from '../Loader/index';
+import { ErrorMessage } from '../ErrorMessage/index';
 
 import { List, Item, Rapper } from './styles';
 
@@ -22,7 +23,7 @@ function useCategoriesData() {
                 setCategories(data);
             } catch (error) {
                 console.error(error.message);
-                setError('An error ocurred getting the list of categories')
+                setError('An error has ocurred getting the list of categories')
             }
             setLoading(false);
         }
@@ -47,8 +48,6 @@ export const ListOfCategories = () => {
     }, [showFixed]);
 
     const renderList = (fixed) => {
-        if (loading) return <Loader/>
-        if (error) return error
         return (
             <Rapper>
                 <List fixed={fixed}>
@@ -60,7 +59,8 @@ export const ListOfCategories = () => {
         )
 
     }
-
+    if (loading) return <Loader />
+    if (error) return <ErrorMessage message={error} />
     return (
         <Fragment>
             {renderList()}
