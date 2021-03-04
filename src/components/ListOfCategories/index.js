@@ -1,40 +1,15 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import {useFetchData} from '../../hooks/useFetchData';
 import { Category } from '../Category/index';
 import { Loader } from '../Loader/index';
 import { ErrorMessage } from '../ErrorMessage/index';
 
 import { List, Item, Rapper } from './styles';
 
-function useCategoriesData() {
-    const [categories, setCategories] = useState([])
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-
-    useEffect(() => {
-        const fetchCategories = async () => {
-            setLoading(true);
-            try {
-                const response = await window.fetch('https://petgram-server-edsf8xpy2.now.sh/categories');
-                if (!response.ok) {
-                    throw new Error('HTTP Status ' + response.status)
-                }
-                const data = await response.json();
-
-                setCategories(data);
-            } catch (error) {
-                console.error(error.message);
-                setError('An error has ocurred getting the list of categories')
-            }
-            setLoading(false);
-        }
-        fetchCategories();
-    }, []);
-
-    return { categories, loading, error }
-}
-
 export const ListOfCategories = () => {
-    const { categories, loading, error } = useCategoriesData()
+    const BASE_URL = 'https://petgram-server-edsf8xpy2.now.sh/categories';
+
+    const { data: categories, loading, error } = useFetchData(BASE_URL)
     const [showFixed, setShowFixed] = useState(false);
 
 
