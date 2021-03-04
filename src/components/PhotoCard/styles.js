@@ -25,11 +25,11 @@ export const Img = styled.img`
     width: 100%;
 `
 
-export const Button = styled.button`
+export const Likes = styled.div`
     padding: 2px 0 20px 15px;
     display: flex;
     align-items: center;
-    & div {
+    & button {
         border-radius: 50%;
         border: 2px solid #ffbd00;
         padding: 5px;
@@ -39,5 +39,6 @@ export const Button = styled.button`
         margin-top: -30px;
         position: relative;
         background: #fff;
+        cursor: pointer;
     }
 `
