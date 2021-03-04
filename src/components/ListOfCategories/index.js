@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import {useOnScrollEvent} from '../../hooks/useOnScrollEvent';
 import {useFetchData} from '../../hooks/useFetchData';
 import { Category } from '../Category/index';
 import { Loader } from '../Loader/index';
@@ -10,17 +11,7 @@ export const ListOfCategories = () => {
     const BASE_URL = 'https://petgram-server-edsf8xpy2.now.sh/categories';
 
     const { data: categories, loading, error } = useFetchData(BASE_URL)
-    const [showFixed, setShowFixed] = useState(false);
-
-
-    useEffect(() => {
-        const onScroll = e => {
-            const newShowFixed = window.scrollY > 205
-            showFixed !== newShowFixed && setShowFixed(newShowFixed)
-        }
-        document.addEventListener('scroll', onScroll)
-        return () => document.removeEventListener('scroll', onScroll) //Clean effect
-    }, [showFixed]);
+    const [showFixed] = useOnScrollEvent(205, 'scrollY');
 
     const renderList = (fixed) => {
         return (

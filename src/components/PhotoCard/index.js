@@ -10,7 +10,6 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
    
     const [show, refElement] = useNearScreen();
     const key = `like-${id}`;
-    console.log(liked);
     const [liked, setLiked] = useLocalStorage(key, false);
     const Icon = liked ? MdFavorite : MdFavoriteBorder;
 
