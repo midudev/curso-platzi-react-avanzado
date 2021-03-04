@@ -39,7 +39,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@apollo/react-hooks": "^4.0.0",
+    "@apollo/client": "^3.3.11",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.5.0",
     "intersection-observer": "^0.12.0",

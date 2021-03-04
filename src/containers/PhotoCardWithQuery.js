@@ -5,7 +5,7 @@ import { Loader } from '../components/Loader';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { PhotoCard } from '../components/PhotoCard';
 
-const query = gql`
+const GET_SINGLE_PHOTO = gql`
 query getSinglePhoto($id:ID!) {
   photo(id:$id) {
     id
@@ -25,10 +25,8 @@ const renderProp = ({ loading, error, data }) => {
 export function PhotoCardWithQuery({ id }) {
     return (
         <Fragment>
-            <Query query={query} variables={{ id }}>
-                {
-                    renderProp
-                }
+            <Query query={GET_SINGLE_PHOTO} variables={{ id }}>
+                {renderProp}
             </Query>
         </Fragment>
     )
