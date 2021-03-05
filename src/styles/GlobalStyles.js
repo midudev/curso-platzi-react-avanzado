@@ -39,4 +39,8 @@ export const GlobalStyle = createGlobalStyle`
             min-height: 100vh;
             padding-bottom: 10px;
     }
+
+    a, button{
+        -webkit-tap-highlight-color: transparent; // Avoid frame focus when user sets a click (outline: none)
+    }
 `
