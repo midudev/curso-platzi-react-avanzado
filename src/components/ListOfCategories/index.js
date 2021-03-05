@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import {useOnScrollEvent} from '../../hooks/useOnScrollEvent';
-import {useFetchData} from '../../hooks/useFetchData';
+import React, { Fragment } from 'react';
+import { useOnScrollEvent } from '../../hooks/useOnScrollEvent';
+import { useFetchData } from '../../hooks/useFetchData';
 import { Category } from '../Category/index';
 import { Loader } from '../Loader/index';
 import { ErrorMessage } from '../ErrorMessage/index';
@@ -8,7 +8,7 @@ import { ErrorMessage } from '../ErrorMessage/index';
 import { List, Item, Rapper } from './styles';
 
 export const ListOfCategories = () => {
-    const BASE_URL = 'https://petgram-server-edsf8xpy2.now.sh/categories';
+    const BASE_URL = 'https://petgram-server-mateombar.vercel.app/categories';
 
     const { data: categories, loading, error } = useFetchData(BASE_URL)
     const [showFixed] = useOnScrollEvent(205, 'scrollY');
@@ -18,7 +18,7 @@ export const ListOfCategories = () => {
             <Rapper>
                 <List fixed={fixed}>
                     {
-                        categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
+                        categories.map(category => <Item key={category.id}><Category {...category} path={`/pet/${category.id}`} /></Item>)
                     }
                 </List>
             </Rapper>

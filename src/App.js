@@ -1,26 +1,27 @@
-import React, { Fragment } from 'react';
-import { ListOfCategories } from './components/ListOfCategories';
-import { ListOfPhotoCards } from './containers/ListOfPhotoCards'
+import React, {Fragment} from 'react';
+import { Home } from './pages/Home'
 import { Logo } from './components/Logo';
 import { PhotoCardWithQuery } from './containers/PhotoCardWithQuery';
+
+import { Router } from '@reach/router';
+
 import { GlobalStyle } from './styles/GlobalStyles';
 export const App = () => {
     const urlParams = new window.URLSearchParams(window.location.search);
     const detailId = urlParams.get('detail');
     console.log(detailId);
     return (
-        <React.Fragment>
+        <Fragment>
             <GlobalStyle />
             <Logo />
             {
                 detailId
                     ? <PhotoCardWithQuery id={detailId} />
-                    :
-                    <Fragment>
-                        <ListOfCategories />
-                        <ListOfPhotoCards categoryId={1} />
-                    </Fragment>
+                    : <Router>
+                        <Home path='/' />
+                        <Home path='/pet/:id' />
+                    </Router>
             }
-        </React.Fragment>
+        </Fragment>
     )
 }
