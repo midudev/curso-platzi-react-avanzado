@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import {Link as LinkRouter} from '@reach/router';
+import { Link as LinkRouter } from '@reach/router';
+import { fadeIn } from '../../styles/animation';
 export const Nav = styled.nav`
     position: fixed;
     bottom: 0;
@@ -25,4 +26,18 @@ export const Link = styled(LinkRouter)`
     justify-content: center;
     text-decoration: none;
     width: 100%;    
+
+    &[aria-current]{ //The parent selector will have an aria-current attribute
+        color: #000;
+        &:after{ //A pseudo element that is right after the element
+            ${fadeIn({ time: '0.5s' })};
+            content: '·';
+            position: absolute;
+            bottom: 0;
+            font-size: 34px;
+            line-height: 20px;
+
+        }
+    }
+
 `
