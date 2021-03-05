@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Router } from '@reach/router';
+import Context from './Context';
 import { Home } from './pages/Home'
 import { Logo } from './components/Logo';
 import { Navbar } from './components/Navbar';
@@ -8,11 +9,8 @@ import { Favs } from './pages/Favs';
 import { User } from './pages/User';
 import { NotRegisteredUser } from './pages/NotRegisteredUser';
 
-
-const UserLogged = ({ children }) => {
-    return children({ isAuth: false })
-}
 import { GlobalStyle } from './styles/GlobalStyles';
+
 export const App = () => {
     return (
         <Fragment>
@@ -24,7 +22,7 @@ export const App = () => {
                 <Home path='/pet/:id' />
 
             </Router>
-            <UserLogged>
+            <Context.Consumer>
                 {
                     ({ isAuth }) =>
                         isAuth
@@ -40,7 +38,7 @@ export const App = () => {
                             </Router>
                 }
 
-            </UserLogged>
+            </Context.Consumer>
             <Navbar />
 
         </Fragment>
