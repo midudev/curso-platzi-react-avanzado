@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-    padding: 16px 32px;
+    padding: 16px 32px 80px 32px;
 `
 export const Input = styled.input`
     border:none;
@@ -26,6 +26,9 @@ export const Button = styled.button`
     text-align: center;
     font-weight: 700;
     width: 100%;
+    &[disabled]{
+        opacity: 0.3;
+    }
 `
 export const Title = styled.h2`
     color: #ff0080;
