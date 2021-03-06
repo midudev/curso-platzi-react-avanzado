@@ -26,7 +26,7 @@ export const ListOfCategories = () => {
 
     }
     if (loading) return <Loader />
-    if (error) return <ErrorMessage message={error} />
+    if (error) return <ErrorMessage message={error} title={true}/>
     return (
         <Fragment>
             {renderList()}

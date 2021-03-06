@@ -18,7 +18,7 @@ query getSinglePhoto($id:ID!) {
 }`
 const renderProp = ({ loading, error, data }) => {
     if (loading) return <Loader />
-    if (error) return <ErrorMessage message={error} />
+    if (error) return <ErrorMessage message={error} title={true}/>
     const { photo = {} } = data
     return <PhotoCard {...photo} />
 }

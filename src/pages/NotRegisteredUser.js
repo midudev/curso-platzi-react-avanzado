@@ -1,16 +1,29 @@
 import React, { Fragment } from 'react';
 import Context from '../Context';
 import { RegisterMutation } from '../containers/RegisterMutation';
+import { LoginMutation } from '../containers/LoginMutation';
 import { UserForm } from '../components/UserForm';
 export const NotRegisteredUser = () => (
     <Context.Consumer>
         {
             ({ activateAuth }) => {
                 return <Fragment>
-                    <UserForm onSubmit={activateAuth} title={'Log in'} text={"Log in to see photos and videos of pets."} />
+                    <LoginMutation>
+                        {
+                            (login, { data, loading, error }) => {
+                                const onSubmit = ({ email, password }) => {
+                                    const input = { email, password };
+                                    const variables = { input };
+                                    login({ variables }).then(activateAuth)
+                                }
+                                const errorMsg = error && 'Incorrect password, or the user is not registered'
+                                return <UserForm onSubmit={onSubmit} title={'Log in'} text={"Log in to see photos and videos of pets."} loading={loading} error={errorMsg} />
+                            }
+                        }
+                    </LoginMutation>
                     <RegisterMutation>
                         {
-                            (register, {data, loading, error}) => {
+                            (register, { loading, error }) => {
                                 const onSubmit = ({ email, password }) => {
                                     const input = { email, password };
                                     const variables = { input };

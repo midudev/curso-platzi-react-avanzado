@@ -14,14 +14,14 @@ export const UserForm = ({ onSubmit, title, text, loading, error }) => {
     return (
         <Fragment>
             <Fox />
-            {error && <ErrorMessage message={error} />}
-            {loading && <Loader />}
             <Title>{title}</Title>
             <Text>{text}</Text>
             <Form onSubmit={handleSubmit} disabled={loading}>
+                {loading && <Loader />}
                 <Input placeholder="Email" {...email} disabled={loading} />
                 <Input type="password" placeholder="password" {...password} disabled={loading} />
                 <Button disabled={loading}>{title}</Button>
+                {error && <ErrorMessage message={error} title={false}/>}
             </Form>
         </Fragment>
     )

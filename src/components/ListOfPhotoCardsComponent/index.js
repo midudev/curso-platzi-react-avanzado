@@ -7,7 +7,7 @@ import { List } from './styles';
 
 export const ListOfPhotoCardsComponent = ({ loading, error, data: { photos = [] } }) => {
     if (loading) return <Loader />
-    if (error) return <ErrorMessage message={error} />
+    if (error) return <ErrorMessage message={error} title={true}/>
     return (
         <List>
             {
