@@ -16,20 +16,7 @@ export const Input = styled.input`
         box-shadow: 0px 5px 5px -4px rgba(0,0,0,0.63);
     }
 `
-export const Button = styled.button`
-    display:block;
-    padding: 8px;
-    border-radius: 3px;
-    margin-top: 15px;
-    background: #ff0080;
-    color: #fff;
-    text-align: center;
-    font-weight: 700;
-    width: 100%;
-    &[disabled]{
-        opacity: 0.3;
-    }
-`
+
 export const Title = styled.h2`
     color: #ff0080;
     font-size: 1.5rem;
