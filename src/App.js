@@ -22,7 +22,7 @@ export const App = () => {
                 <NotFound default/>
                 <Detail path='/detail/:detailId' />
                 <Home path='/' />
-                <Home path='/pet/:id' />
+                <Home path='/pet/:categoryId' />
                 {!isAuth && <NotRegisteredUser path='/login' />}
                 {!isAuth && <Redirect noThrow from='/favs' to='/login' />}
                 {!isAuth && <Redirect noThrow from='/user' to='/login' />}

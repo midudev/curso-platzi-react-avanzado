@@ -7,7 +7,7 @@ import { ErrorMessage } from '../ErrorMessage/index';
 
 import { List, Item, Rapper } from './styles';
 
-export const ListOfCategories = () => {
+export const ListOfCategoriesComponent = () => {
     const BASE_URL = 'https://petgram-server-mateombar.vercel.app/categories';
 
     const { data: categories, loading, error } = useFetchData(BASE_URL)
@@ -34,3 +34,5 @@ export const ListOfCategories = () => {
         </Fragment>
     )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent);
