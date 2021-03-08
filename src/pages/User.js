@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { Context } from '../Context';
-import { SubmitButton } from '../components/SubmitButton';
+import { SubmitButton } from '../components/Buttons';
 // import { useFetchData } from '../hooks/useFetchData';
 export const User = () => {
     // const BASE_URL = 'https://petgram-server-mateombar.vercel.app/users'

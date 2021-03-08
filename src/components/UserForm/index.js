@@ -4,7 +4,7 @@ import { Fox } from '../Fox/index';
 import { Form, Input, Title, Text } from './styles';
 import { ErrorMessage } from '../ErrorMessage';
 import { Loader } from '../Loader';
-import {SubmitButton} from '../SubmitButton';
+import {SubmitButton} from '../Buttons';
 export const UserForm = ({ onSubmit, title, text, loading, error }) => {
     const email = useInputValue('')
     const password = useInputValue('')

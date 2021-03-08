@@ -1,44 +1,35 @@
-import React, { Fragment } from 'react';
-import { Router } from '@reach/router';
-import Context from './Context';
+import React, { Fragment, useContext } from 'react';
+import { Redirect, Router } from '@reach/router';
+import { Context } from './Context';
 import { Home } from './pages/Home'
 import { Logo } from './components/Logo';
 import { Navbar } from './components/Navbar';
 import { Detail } from './pages/Detail';
 import { Favs } from './pages/Favs';
 import { User } from './pages/User';
+import { NotFound } from './pages/NotFound';
 import { NotRegisteredUser } from './pages/NotRegisteredUser';
 
 import { GlobalStyle } from './styles/GlobalStyles';
 
 export const App = () => {
+    const { isAuth } = useContext(Context);
     return (
         <Fragment>
             <GlobalStyle />
             <Logo />
             <Router>
+                <NotFound default/>
                 <Detail path='/detail/:detailId' />
                 <Home path='/' />
                 <Home path='/pet/:id' />
-
+                {!isAuth && <NotRegisteredUser path='/login' />}
+                {!isAuth && <Redirect from='/favs' to='/login' />}
+                {!isAuth && <Redirect from='/user' to='/login' />}
+                {isAuth && <Redirect from='/login' to='/' />}
+                <Favs path='favs' />
+                <User path='user' />
             </Router>
-            <Context.Consumer>
-                {
-                    ({ isAuth }) =>
-                        isAuth
-                            ?
-                            <Router>
-                                <Favs path='favs' />
-                                <User path='user' />
-                            </Router>
-                            :
-                            <Router>
-                                <NotRegisteredUser path='favs' />
-                                <NotRegisteredUser path='user' />
-                            </Router>
-                }
-
-            </Context.Consumer>
             <Navbar />
 
         </Fragment>
