@@ -28,13 +28,13 @@ export const App = () => {
                         isAuth
                             ?
                             <Router>
-                                <Favs path='/favs' />
-                                <User path='/user' />
+                                <Favs path='favs' />
+                                <User path='user' />
                             </Router>
                             :
                             <Router>
-                                <NotRegisteredUser path='/favs' />
-                                <NotRegisteredUser path='/user' />
+                                <NotRegisteredUser path='favs' />
+                                <NotRegisteredUser path='user' />
                             </Router>
                 }
 
