@@ -1,11 +1,12 @@
-import React, { Fragment, useContext } from 'react';
-import {Context} from '../Context';
+import React, { useContext } from 'react';
+import { Context } from '../Context';
 import { RegisterMutation } from '../containers/RegisterMutation';
 import { LoginMutation } from '../containers/LoginMutation';
 import { UserForm } from '../components/UserForm';
+import { Layout } from '../components/Layout';
 export const NotRegisteredUser = () => {
     const { activateAuth } = useContext(Context)
-    return <Fragment>
+    return <Layout title="Session">
         <LoginMutation>
             {
                 (login, { data, loading, error }) => {
@@ -38,6 +39,7 @@ export const NotRegisteredUser = () => {
                 }
             }
         </RegisterMutation>
-    </Fragment>
+
+    </Layout>
 }
 

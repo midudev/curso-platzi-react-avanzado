@@ -29,7 +29,7 @@ export const List = styled.ul`
 `
 
 export const Rapper = styled.div`
-    padding: 0 8px;
+    padding: 0;
 `
 
 export const Item = styled.li`
