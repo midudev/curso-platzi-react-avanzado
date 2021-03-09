@@ -1,0 +1,6 @@
+{
+    "baseUrl": "https://petgram-server-mateombar-mateombar.vercel.app/",
+    "chromeWebSecurity": false,
+    "viewportWidth": 500,
+    "viewportHeight": 800
+}

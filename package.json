@@ -4,7 +4,7 @@
   "description": "Proyecto curso de platzi realizado por mi",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress open",
     "build": "webpack --profile --mode production",
     "serve:dev": "webpack --profile --mode development && npx serve dist -s",
     "dev": "webpack serve --config ./webpack.config.js --mode development",
@@ -32,6 +32,7 @@
     "@babel/preset-react": "^7.12.13",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
+    "cypress": "^6.6.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.2.0",
     "scheduler": "^0.20.1",
