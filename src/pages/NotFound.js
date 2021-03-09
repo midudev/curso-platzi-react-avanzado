@@ -3,7 +3,7 @@ import { ErrorMessage } from '../components/ErrorMessage';
 import { RedirectButton } from '../components/Buttons';
 import { Layout } from '../components/Layout'; 
 
-export const NotFound = () => {
+export default () => {
     return (
         <Layout title="Ups">
             <ErrorMessage message="Page Not Found" title={true} />
