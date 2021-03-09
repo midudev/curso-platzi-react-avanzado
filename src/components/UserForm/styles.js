@@ -1,7 +1,24 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+    margin-bottom: 80px;
+`
+export const Paragraph = styled.p`
+    text-align: center;
+    margin-top: 10px;
+    padding: 16px 32px;
+    font-size: 15px;
+    & button{
+    font-size: 15px;
+        color: #ff0080;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        padding: 0;
+    }
+`
 export const Form = styled.form`
-    padding: 16px 32px 80px 32px;
+    padding: 16px 32px;
 `
 export const Input = styled.input`
     border:none;
