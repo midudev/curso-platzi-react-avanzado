@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "name": "petgram-server",
-  "alias": ["petgram-api"],
-  "builds": [{ "src": "index.js", "use": "@now/node" }],
+  "name": "petgram-server-yhorman",
+  "alias": ["petgram-api-yhorman"],
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }],
   "routes": [{
     "headers": {
         "Access-Control-Allow-Origin": "*",
