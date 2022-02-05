@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { fadeIn } from "../../styles/animation";
 
 export const List = styled.ul`
   display: flex;
@@ -12,6 +13,7 @@ export const List = styled.ul`
     css`
        {
         background: #fff;
+        ${fadeIn()}
         border-radius: 60px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         left: 0;
