@@ -1,13 +1,14 @@
 {
   "name": "curso-avanzado-graphql-server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "deploy": "now -t <tu-token>",
     "start:api": "NODE_ENV=production node index.js",
     "dev:api": "nodemon index.js --ignore db.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack", 
+    "dev": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
@@ -24,5 +25,7 @@
   },
   "devDependencies": {
     "nodemon": "1.19.0"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
