@@ -7,8 +7,8 @@ import { ApolloProvider } from 'react-apollo'
 import App from './App'
 
 const client = new ApolloClient({
-  // uri: 'http://localhost:3500/graphql',
-  uri: 'https://petgram-api.midudev.now.sh/graphql',
+  uri: 'http://localhost:3500/graphql',
+  // uri: 'https://petgram-api.midudev.now.sh/graphql',
   request: operation => {
     const token = window.localStorage.getItem('token')
     const authorization = token ? `Bearer ${token}` : ''
