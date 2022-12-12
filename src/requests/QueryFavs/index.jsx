@@ -1,6 +1,6 @@
 import React from 'react'
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
+import { Query } from '@apollo/client/react/components'
 
 const GET_FAVS = gql`
   query getfavs {

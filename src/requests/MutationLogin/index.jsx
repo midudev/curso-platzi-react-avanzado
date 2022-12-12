@@ -1,6 +1,6 @@
 import React from 'react'
 import gql from 'graphql-tag'
-import { Mutation } from 'react-apollo'
+import { Mutation } from '@apollo/client/react/components'
 import { useGlobalState } from '../../hooks/useGlobalState'
 
 const LOGIN = gql`

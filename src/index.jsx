@@ -1,12 +1,11 @@
-import React from 'react'
 import ReactDOM from 'react-dom'
 
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from 'react-apollo'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 
 import App from './App'
 
 const client = new ApolloClient({
+  cache: new InMemoryCache(),
   uri: 'http://localhost:3500/graphql',
   // uri: 'https://petgram-api.midudev.now.sh/graphql',
   request: operation => {

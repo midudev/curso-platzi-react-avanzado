@@ -6,7 +6,7 @@ Vamos a instalar las dependencias de React Apollo
 
 
 ```
-npm install apollo-boost react-apollo graphql-tag graphql --save
+npm install apollo-boost @apollo/client/react/components graphql-tag graphql --save
 ```
 
 Creamos el directorio `containers`. Y allí creamos el archivo `FetchListOfCategories`.
@@ -17,7 +17,7 @@ Creamos el directorio `containers`. Y allí creamos el archivo `FetchListOfCateg
 ```js
 import React from 'react'
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
+import { Query } from '@apollo/client/react/components'
 import { ListOfCategories } from '../../components/ListOfCategories'
 
 const GET_CATEGORIES = gql`
